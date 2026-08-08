@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>НОВОСТИ ОТ РУСТАМА — ТУРИЗМ И ГОРОДА УЗБЕКИСТАНА</title>
+    <title>ТУРИЗМ И ГОРОДА УЗБЕКИСТАНА</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
         body { font-family: 'Courier New', monospace; margin: 0; padding: 0; background-color: #f8fafc; }
@@ -23,7 +24,18 @@
         }
 
         .intro { padding: 25px 20px; text-align: center; max-width: 900px; margin: 0 auto; line-height: 1.6; }
-        .intro h2 { color: #1e293b; margin-bottom: 10px; }
+        .intro h2 { position: relative; color: #1e293b; margin-bottom: 10px; font-family: 'El Messiri', sans-serif; font-size: 36px; }
+
+        @keyframes rotateSvg {
+            from { transform: translateY(-50%) rotateY(0deg); }
+            to { transform: translateY(-50%) rotateY(360deg); }
+        }
+        .spin-svg {
+            animation: rotateSvg 5s linear infinite;
+            position: absolute;
+            left: 0;
+            top: 50%;
+        }
 
         .main-container {
             display: flex;
@@ -257,14 +269,33 @@
 </head>
 <body>
 
-    <header>ГОРОДА УЗБЕКИСТАНА</header>
+    <header>ГОРОДА УЗБЕКИСТАНА
+        <h1 style="font-size: 25px;">Путешествия по истории</h1>
+    </header>
 
     <div class="intro">
-        <h2>ГЕОГРАФИЧЕСКАЯ ЧУШЬ</h2>
-        <p>Сейчас вы видите текст, который не несет никакого смысла и не имеет никакого отношения к географии. 
-           Он написан только для того, чтобы как-то заполнить этот раздел.</p>
-        <p>Второй абзац этого бессмысленного текста написан для того, чтобы заполнить второй абзац. 
-           Что касается географии, то это такая наука, которая описывает географию.</p>
+        <h2>
+            <svg class="spin-svg" width="150" height="150" viewBox="0 0 200 200">
+                <defs>
+                    <linearGradient id="grad2">
+                       <stop offset="0%" stop-color="yellow"/>
+                       <stop offset="100%" stop-color="red"/>
+                    </linearGradient> 
+                </defs>
+                <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad2)"/>
+                <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">UzTur</text>
+            </svg>
+            НЕЗАБЫВАЕМЫЕ ТУРЫ
+        </h2>
+        <p>Наше туристическое агенство "UzTur" безусловный лидер на рынке туризма Узбекистана.
+             Уже много лет мы доставляем радость нашим клиентам, помогая им окунуться в сказочный мир востока
+            на территории нашей красивой страны</p>
+        <p>Приоритетом для нас является благополучие и комфорт наших гостей на протяжении всего маршрута по
+            незабываемым местам нашей републики.
+        </p>
+        <p>Кроме того мы предлагаем нашим дорогим клиентам интересную программу не только развлекательных,
+            но и познавательных мероприятий!
+        </p>
     </div>
 
     <section class="main-container">
@@ -295,7 +326,7 @@
                Туризм направлен на знакомство с особенностями других стран, регионов, делает человека более 
                выносливым и здоровым, кроме того, занимаясь туризмом, 
                человек может отвлечься от рутины и насытиться положительными эмоциями.</p>
-            <p>Туризм — временные выезды (путешествия) граждан Российской Федерации, иностранных граждан 
+            <p>Туризм — временные выезды (путешествия) граждан республики Узбекистан, иностранных граждан 
                и лиц без гражданства (далее — лица) с постоянного места жительства в лечебно-оздоровительных, рекреационных, 
                познавательных, физкультурно-спортивных, профессионально-деловых, религиозных и иных целях без занятия 
                деятельностью, связанной с получением дохода от источников в стране (месте) временного пребывания.</p>
@@ -376,11 +407,26 @@
         </div>
     </div>
 
-    <footer>
-        <p>Вы можете связаться со мной по адресу, указанному ниже:</p>
-        <p><a href="mailto:riardik5@gmail.com">riardik5@gmail.com</a></p>
-        <p>&copy; Copyright</p>
-    </footer>
+ <footer style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 200px; padding: 20px;">
+    <!-- SVG абсолютно прижат к левому краю -->
+    <svg style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%);" width="150" height="150" viewBox="0 0 200 200">
+<defs>
+    <linearGradient id="grad1">
+       <stop offset="0%" stop-color="yellow"/>
+       <stop offset="100%" stop-color="red"/>
+       </linearGradient> 
+</defs>
+<ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)"/>
+<text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">UzTur</text>
+    </svg>
+    
+    <!-- Контент строго по центру -->
+    <div>
+        <p style="margin: 0 0 5px 0;">Вы можете связаться с нами по адресу, указанному ниже:</p>
+        <p style="margin: 0 0 5px 0;"><a href="mailto:riardik5@gmail.com">riardik5@gmail.com</a></p>
+        <p style="margin: 0;">&copy; Copyright</p>
+    </div>
+</footer>
 
     <script>
         let currentSelectedRegion = null;
