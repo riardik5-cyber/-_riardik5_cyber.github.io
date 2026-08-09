@@ -4,301 +4,501 @@
     <title>ТУРИЗМ И ГОРОДА УЗБЕКИСТАНА</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Туристическое агентство UzTur — незабываемые туры по Узбекистану: Ташкент, Самарканд, Бухара.">
+    <!-- Восточный шрифт для заголовков + обычный -->
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=El+Messiri:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; }
-        body { font-family: 'Courier New', monospace; margin: 0; padding: 0; background-color: #f8fafc; }
-        
-        header { 
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('1395.jpg'); 
+        /* ===== RESET & BASE ===== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background-color: #f5f0e8;
+            color: #1e293b;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('1395.jpg');
             background-size: cover;
             background-position: center;
-            height: 160px; 
-            padding: 30px; 
-            text-align: center; 
-            font-size: 32px; 
-            font-weight: bold;
-            color: white; 
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            min-height: 160px;
+            padding: 25px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        header h1 {
+            font-family: 'Scheherazade New', serif;
+            font-size: clamp(22px, 5vw, 40px);
+            font-weight: 700;
+            color: #fde68a;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+            letter-spacing: 3px;
+        }
+        header p {
+            font-family: 'El Messiri', sans-serif;
+            font-size: clamp(13px, 2.5vw, 18px);
+            color: #e2e8f0;
             letter-spacing: 2px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.7);
         }
 
-        .intro { padding: 25px 20px; text-align: center; max-width: 900px; margin: 0 auto; line-height: 1.6; }
-        .intro h2 { position: relative; color: #1e293b; margin-bottom: 10px; font-family: 'El Messiri', sans-serif; font-size: 36px; }
-
-        @keyframes rotateSvg {
-            from { transform: translateY(-50%) rotateY(0deg); }
-            to { transform: translateY(-50%) rotateY(360deg); }
-        }
-        .spin-svg {
-            animation: rotateSvg 5s linear infinite;
-            position: absolute;
-            left: 0;
-            top: 50%;
+        /* ===== HERO SECTION (SVG + текст) ===== */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 28px auto;
+            padding: 0 20px;
         }
 
+        /* ===== SVG LOGO — АНИМАЦИЯ МОНЕТЫ ===== */
+        .logo-coin-wrapper {
+            flex-shrink: 0;
+            width: 160px;
+            perspective: 500px;
+        }
+        .spin-coin {
+            width: 100%;
+            height: auto;
+            display: block;
+            animation: coinSpin 4s linear infinite;
+            transform-style: preserve-3d;
+        }
+        @keyframes coinSpin {
+            0%   { transform: rotateY(0deg); }
+            50%  { transform: rotateY(90deg) scaleX(0.1); }
+            51%  { transform: rotateY(90deg) scaleX(0.1); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        /* ===== HERO TEXT ===== */
+        .hero-text {
+            flex: 1;
+        }
+        .hero-text h2 {
+            font-family: 'Scheherazade New', serif;
+            font-size: clamp(26px, 4vw, 42px);
+            font-weight: 700;
+            color: #92400e;
+            text-align: center;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, #92400e, #c2410c, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-text p {
+            font-size: 15px;
+            line-height: 1.75;
+            color: #475569;
+            margin-bottom: 10px;
+        }
+
+        /* ===== MAIN CONTAINER (nav + article) ===== */
         .main-container {
             display: flex;
             flex-wrap: wrap;
             max-width: 1200px;
-            margin: 0 auto;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
+            margin: 0 auto 30px auto;
+            padding: 0 20px;
+            gap: 20px;
         }
 
-        nav { 
-            width: 30%; 
-            padding: 20px; 
-            background-color: #f1f5f9;
-            border-right: 1px solid #e2e8f0;
+        /* ===== NAV ===== */
+        nav {
+            width: 260px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
         }
-        nav p { font-weight: bold; color: #334155; }
-        nav ul { list-style-type: none; padding: 0; margin: 0; }
-        nav li { 
-            margin-bottom: 25px; 
-            background: white; 
-            border-radius: 8px; 
-            padding: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
+        nav p {
+            font-weight: 600;
+            color: #334155;
+            font-size: 14px;
+            margin-bottom: 14px;
+            line-height: 1.4;
+        }
+        nav ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+        nav li {
+            background: #f8fafc;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
             cursor: pointer;
         }
         nav li:hover, nav li.active-city {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 12px rgba(99, 102, 241, 0.25);
-            border: 2px solid #6366f1;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(99,102,241,0.22);
+            border-color: #6366f1;
         }
-        nav img { max-width: 100%; height: 160px; width: 100%; object-fit: cover; border-radius: 6px; display: block; margin-bottom: 8px; }
-        nav a { font-weight: bold; color: #4338ca; text-decoration: none; display: block; text-align: center; font-size: 16px; }
-        nav a:hover { color: #1e1b4b; text-decoration: underline; }
-
-        article { 
-            width: 70%; 
-            padding: 30px; 
-            background-color: #ffffff; 
-        }
-
-        aside {
+        nav img {
             width: 100%;
-            padding: 15px 20px;
-            margin: 20px 0;
+            height: 130px;
+            object-fit: cover;
+            display: block;
+        }
+        nav a {
+            display: block;
+            text-align: center;
+            font-family: 'El Messiri', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #4338ca;
+            text-decoration: none;
+            padding: 10px 8px;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: #1e1b4b; }
+
+        /* ===== ARTICLE ===== */
+        article {
+            flex: 1;
+            min-width: 0;
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        article h1 {
+            font-family: 'El Messiri', sans-serif;
+            font-size: clamp(20px, 3vw, 28px);
+            color: #0f172a;
+            text-align: center;
+        }
+
+        /* ===== СЛАЙДЕР ===== */
+        .slider-wrap {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #0f172a;
+            height: 220px;
+            flex-shrink: 0;
+        }
+        .slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.65));
+            color: white;
+            font-family: 'El Messiri', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 18px 16px 12px;
+            letter-spacing: 1px;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.85);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        }
+        .slider-btn:hover { background: white; transform: translateY(-50%) scale(1.1); }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .dot.active { background: white; transform: scale(1.3); }
+
+        /* ===== ТЕКСТ О ТУРИЗМЕ ===== */
+        .tourism-text { display: flex; flex-direction: column; gap: 10px; }
+        .tourism-text p {
+            font-size: 14.5px;
+            line-height: 1.75;
+            color: #475569;
+        }
+
+        /* ===== ASIDE ===== */
+        aside {
+            padding: 14px 18px;
             font-style: italic;
-            background-color: #fef3c7;
+            background: linear-gradient(135deg, #fef3c7, #fde68a22);
             border-left: 4px solid #f59e0b;
             color: #78350f;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
-        /* Интерактивная карта */
+        /* ===== КАРТА ===== */
         .map-section {
-            background-color: #f8fafc;
+            background: #f8fafc;
             border: 2px solid #e2e8f0;
             border-radius: 12px;
             padding: 20px;
-            margin-top: 20px;
             text-align: center;
-            position: relative;
         }
-
+        .map-section > p {
+            font-size: 15px;
+            color: #4338ca;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
         .map-container {
             width: 100%;
-            max-width: 750px;
+            max-width: 700px;
             margin: 0 auto;
             position: relative;
         }
-
         svg#uzbekistan-map {
             width: 100%;
             height: auto;
-            filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
         }
-
         .map-region {
             fill: #cbd5e1;
             stroke: #ffffff;
             stroke-width: 1.5;
             cursor: pointer;
-            transition: fill 0.3s ease, transform 0.2s ease, filter 0.3s ease;
+            transition: fill 0.3s, filter 0.3s;
         }
-
-        .map-region:hover {
-            fill: #818cf8 !important;
-            filter: drop-shadow(0px 0px 8px rgba(99, 102, 241, 0.6));
-        }
-
-        .map-region.selected {
-            fill: #4f46e5 !important;
-            stroke: #312e81;
-            stroke-width: 2;
-        }
-
-        .water {
-            fill: #93c5fd !important;
-            cursor: default;
-        }
-
-        /* Тултип над картой */
+        .map-region:hover { fill: #818cf8 !important; filter: drop-shadow(0 0 8px rgba(99,102,241,0.6)); }
+        .map-region.selected { fill: #4f46e5 !important; stroke: #312e81; stroke-width: 2; }
+        .water { fill: #93c5fd !important; cursor: default; }
         .map-tooltip {
             position: absolute;
             background: #0f172a;
             color: white;
-            padding: 8px 14px;
+            padding: 7px 13px;
             border-radius: 6px;
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 13px;
+            font-weight: 600;
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.2s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             z-index: 100;
             white-space: nowrap;
         }
-
-        /* Панель выбранного города */
         .selection-panel {
-            margin-top: 20px;
+            margin-top: 16px;
             background: #e0e7ff;
             border: 2px solid #6366f1;
-            border-radius: 8px;
-            padding: 15px;
+            border-radius: 10px;
+            padding: 14px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 10px;
         }
+        .selection-panel h3 { margin: 0; color: #3730a3; font-size: 16px; }
+        .selection-panel p { margin: 4px 0 0; font-size: 13px; color: #475569; }
 
-        .selection-panel h3 {
-            margin: 0;
-            color: #3730a3;
-            font-size: 18px;
-        }
-
+        /* ===== КНОПКИ ===== */
         .btn-order {
-            background-color: #4f46e5;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
             color: white;
             border: none;
             padding: 10px 20px;
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
+            transition: opacity 0.2s, transform 0.15s;
+            font-family: 'Inter', sans-serif;
         }
+        .btn-order:hover:not(:disabled) { opacity: 0.9; transform: scale(1.03); }
+        .btn-order:disabled { opacity: 0.45; cursor: not-allowed; }
 
-        .btn-order:hover {
-            background-color: #4338ca;
-            transform: scale(1.03);
-        }
-
-        /* Модальное окно заказа */
+        /* ===== МОДАЛЬНОЕ ОКНО ===== */
         .modal-overlay {
             display: none;
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(15, 23, 42, 0.65);
+            inset: 0;
+            background: rgba(15,23,42,0.65);
             backdrop-filter: blur(4px);
             z-index: 1000;
             align-items: center;
             justify-content: center;
         }
-
         .modal-content {
             background: white;
             padding: 30px;
-            border-radius: 12px;
-            max-width: 450px;
-            width: 90%;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            border-radius: 14px;
+            max-width: 440px;
+            width: 92%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             position: relative;
         }
-
-        .modal-header {
-            font-size: 20px;
-            font-weight: bold;
-            color: #1e293b;
-            margin-bottom: 15px;
-        }
-
+        .modal-header { font-size: 20px; font-weight: 700; color: #1e293b; margin-bottom: 18px; }
         .modal-close {
             position: absolute;
-            top: 15px; right: 15px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #64748b;
+            top: 14px; right: 14px;
+            background: none; border: none;
+            font-size: 24px; cursor: pointer; color: #64748b;
+            line-height: 1;
+            transition: color 0.2s;
         }
-
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #334155;
-        }
+        .modal-close:hover { color: #1e293b; }
+        .form-group { margin-bottom: 14px; text-align: left; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; color: #334155; }
         .form-group input, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 15px;
+            width: 100%; padding: 10px 12px;
+            border: 1px solid #cbd5e1; border-radius: 8px;
+            font-size: 15px; font-family: 'Inter', sans-serif;
+            outline: none; transition: border-color 0.2s;
         }
+        .form-group input:focus, .form-group select:focus { border-color: #6366f1; }
 
-        footer { 
-            background-color: #1e293b; 
-            padding: 25px; 
-            color: #f1f5f9; 
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1e293b;
+            padding: 30px 20px;
+            color: #f1f5f9;
             text-align: center;
         }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .footer-logo-wrap {
+            flex-shrink: 0;
+            width: 120px;
+            perspective: 400px;
+        }
+        .spin-coin-footer {
+            width: 100%;
+            height: auto;
+            display: block;
+            animation: coinSpin 5s linear infinite;
+            transform-style: preserve-3d;
+        }
+        .footer-info p { margin: 4px 0; font-size: 14px; }
         footer a { color: #818cf8; text-decoration: none; }
         footer a:hover { text-decoration: underline; }
 
-        @media (max-width: 768px) {
-            nav, article { width: 100%; }
-            .selection-panel { flex-direction: column; text-align: center; }
-            .btn-order { width: 100%; }
+        /* ===== АДАПТИВНОСТЬ ===== */
+        @media (max-width: 900px) {
+            .hero-section { flex-direction: column; align-items: center; gap: 16px; }
+            .logo-coin-wrapper { width: 130px; }
+            .hero-text h2 { text-align: center; }
+            nav { width: 100%; }
+            nav ul { flex-direction: row; flex-wrap: wrap; gap: 10px; }
+            nav li { flex: 1 1 calc(33% - 10px); min-width: 120px; }
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 22px; letter-spacing: 1px; }
+            nav li { flex: 1 1 calc(50% - 10px); }
+            .slider-wrap { height: 170px; }
+            .footer-inner { flex-direction: column; gap: 16px; }
         }
     </style>
 </head>
 <body>
 
-    <header>ГОРОДА УЗБЕКИСТАНА
-        <h1 style="font-size: 25px;">Путешествия по истории</h1>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>ГОРОДА УЗБЕКИСТАНА</h1>
+        <p>Путешествия по истории</p>
     </header>
 
-    <div class="intro">
-        <h2>
-            <svg class="spin-svg" width="150" height="150" viewBox="0 0 200 200">
+    <!-- ===== HERO: SVG монета + текст ===== -->
+    <div class="hero-section">
+
+        <!-- SVG вращается как монета -->
+        <div class="logo-coin-wrapper">
+            <svg class="spin-coin" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <linearGradient id="grad2">
-                       <stop offset="0%" stop-color="yellow"/>
-                       <stop offset="100%" stop-color="red"/>
-                    </linearGradient> 
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fbbf24"/>
+                        <stop offset="50%" stop-color="#f59e0b"/>
+                        <stop offset="100%" stop-color="#dc2626"/>
+                    </linearGradient>
+                    <filter id="shadow">
+                        <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="rgba(0,0,0,0.3)"/>
+                    </filter>
                 </defs>
-                <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad2)"/>
-                <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">UzTur</text>
+                <ellipse cx="100" cy="70" rx="88" ry="58" fill="url(#grad2)" filter="url(#shadow)"/>
+                <ellipse cx="100" cy="68" rx="84" ry="54" fill="none" stroke="#fde68a" stroke-width="2" stroke-dasharray="6 4" opacity="0.6"/>
+                <text fill="#ffffff" font-size="36" font-family="Verdana, sans-serif" font-weight="bold"
+                      x="100" y="78" text-anchor="middle" dominant-baseline="middle">UzTur</text>
             </svg>
-            НЕЗАБЫВАЕМЫЕ ТУРЫ
-        </h2>
-        <p>Наше туристическое агенство "UzTur" безусловный лидер на рынке туризма Узбекистана.
-             Уже много лет мы доставляем радость нашим клиентам, помогая им окунуться в сказочный мир востока
-            на территории нашей красивой страны</p>
-        <p>Приоритетом для нас является благополучие и комфорт наших гостей на протяжении всего маршрута по
-            незабываемым местам нашей републики.
-        </p>
-        <p>Кроме того мы предлагаем нашим дорогим клиентам интересную программу не только развлекательных,
-            но и познавательных мероприятий!
-        </p>
+        </div>
+
+        <!-- Заголовок и описание -->
+        <div class="hero-text">
+            <h2>✦ НЕЗАБЫВАЕМЫЕ ТУРЫ ✦</h2>
+            <p>Наше туристическое агентство «UzTur» — безусловный лидер на рынке туризма Узбекистана.
+               Уже много лет мы доставляем радость нашим клиентам, помогая им окунуться в сказочный мир востока
+               на территории нашей красивой страны.</p>
+            <p>Приоритетом для нас является благополучие и комфорт наших гостей на протяжении всего маршрута
+               по незабываемым местам нашей республики.</p>
+            <p>Кроме того мы предлагаем нашим дорогим клиентам интересную программу не только развлекательных,
+               но и познавательных мероприятий!</p>
+        </div>
+
     </div>
 
-    <section class="main-container">
+    <!-- ===== MAIN: nav + article ===== -->
+    <div class="main-container">
+
+        <!-- NAV -->
         <nav>
             <p>Перейдя по ссылкам ниже, вы сможете больше узнать об этих городах:</p>
             <ul>
@@ -317,44 +517,69 @@
             </ul>
         </nav>
 
+        <!-- ARTICLE -->
         <article>
-            <h1 style="text-align: center; color: #0f172a; margin-top: 0;">ТУРИЗМ</h1>
-            <p>Туризм переживает одну из самых динамичных трансформаций за последние десятилетия:
-               меняются маршруты, модели продаж и ожидания путешественников.</p>
-            <p>Туризм – один из видов активного отдыха, который проводит человек в свое свободное время,
-               цели бывают самые разные: спортивные, оздоровительные, познавательные, религиозные, профессиональные и другие.
-               Туризм направлен на знакомство с особенностями других стран, регионов, делает человека более 
-               выносливым и здоровым, кроме того, занимаясь туризмом, 
-               человек может отвлечься от рутины и насытиться положительными эмоциями.</p>
-            <p>Туризм — временные выезды (путешествия) граждан республики Узбекистан, иностранных граждан 
-               и лиц без гражданства (далее — лица) с постоянного места жительства в лечебно-оздоровительных, рекреационных, 
-               познавательных, физкультурно-спортивных, профессионально-деловых, религиозных и иных целях без занятия 
-               деятельностью, связанной с получением дохода от источников в стране (месте) временного пребывания.</p>
 
+            <h1>ТУРИЗМ</h1>
+
+            <!-- === СЛАЙДЕР === -->
+            <div class="slider-wrap" id="slider">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slide">
+                        <img src="istockphoto-1572635966-1024x1024.jpg" alt="Ташкент">
+                        <div class="slide-caption">🕌 Ташкент — столица вечной весны</div>
+                    </div>
+                    <div class="slide">
+                        <img src="falco-uzbekistan-4603984_1920.jpg" alt="Самарканд">
+                        <div class="slide-caption">✨ Самарканд — жемчужина Востока</div>
+                    </div>
+                    <div class="slide">
+                        <img src="istockphoto-1184019772-1024x1024.jpg" alt="Бухара">
+                        <div class="slide-caption">🌙 Бухара — город-музей</div>
+                    </div>
+                </div>
+                <button class="slider-btn prev" id="prevBtn" aria-label="Назад">&#8249;</button>
+                <button class="slider-btn next" id="nextBtn" aria-label="Вперёд">&#8250;</button>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+
+            <!-- ТЕКСТ О ТУРИЗМЕ -->
+            <div class="tourism-text">
+                <p>Туризм переживает одну из самых динамичных трансформаций за последние десятилетия:
+                   меняются маршруты, модели продаж и ожидания путешественников.</p>
+                <p>Туризм – один из видов активного отдыха, который проводит человек в свое свободное время.
+                   Цели бывают самые разные: спортивные, оздоровительные, познавательные, религиозные,
+                   профессиональные. Занимаясь туризмом, человек может отвлечься от рутины
+                   и насытиться положительными эмоциями.</p>
+                <p>Туризм — временные выезды (путешествия) граждан республики Узбекистан, иностранных граждан
+                   и лиц без гражданства с постоянного места жительства в лечебно-оздоровительных,
+                   познавательных, физкультурно-спортивных, профессионально-деловых, религиозных и иных целях.</p>
+            </div>
+
+            <!-- ASIDE внутри article -->
             <aside>
-                <p>Уважаемые туристы!<br>Обращаем ваше внимание на то, что не по всем направлениям 
+                <p>Уважаемые туристы!<br>
+                   Обращаем ваше внимание на то, что не по всем направлениям
                    на данный момент имеется туристический маршрут нашей компании.</p>
             </aside>
 
-            <!-- ИНТЕРАКТИВНАЯ КАРТА УЗБЕКИСТАНА -->
+            <!-- КАРТА -->
             <div class="map-section">
-                <p style="font-size:18px; color: #4338ca; font-weight: bold; margin-top: 0;">
-                   🗺️ ВЫБЕРИТЕ НА КАРТЕ РЕГИОН ИЛИ ГОРОД ДЛЯ ОФОРМЛЕНИЯ ПОЕЗДКИ
-                </p>
+                <p>🗺️ ВЫБЕРИТЕ НА КАРТЕ РЕГИОН ИЛИ ГОРОД ДЛЯ ОФОРМЛЕНИЯ ПОЕЗДКИ</p>
 
                 <div class="map-container">
                     <div class="map-tooltip" id="map-tooltip"></div>
-                    
+
                     <svg id="uzbekistan-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 793 517">
                       <path class="map-region water" title="Аральское море" id="UZ-AS" d="m 134.41007,7.1297222 -3.4,6.4199998 -1,3.43 -0.61,3.82 2.02,2.82 1,3.02 -1.81,2.62 -2.82,5.23 -1.41,2.21 2.22,-1 1.61,-2.02 1.41,-1 3.82,0.6 2.42,0.6 0.2,3.23 -2.82,0.4 -0.2,8.25 -2.01,-1.01 -1.81,0.41 -1.82,2.01 0.61,2.42 3.22,2.61 3.02,1.81 -1.01,3.23 0,4.02 -1.41,3.02 -2.82,1.01 -1.81,-1.01 -1.2,-2.82 -1.62,0 0,3.42 1.21,1.61 0.2,6.24 0.41,4.03 3.02,1.81 2.21,-2.41 2.42,-4.23 1.81,-4.03 2.41,-1.41 3.02,1.61 2.42,-0.8 -0.81,-2.82 -1.21,-2.62 -0.8,-4.62 0.6,-2.62 1.41,-1.41 1.81,-0.2 2.22,0 1,-4.23 2.82,-6.04 3.22,-5.43 2.02,-5.84 -0.36,-7.73 0,0 56.78,40.99 0,0 -3.89,0.36 1.01,2.01 1.61,1.41 1.01,1.41 -0.81,3.82 -2.82,5.03 -4.63,4.63 -6.24,5.04 -1.61,3.42 1.01,1.81 -1.21,1.81 -3.42,0 -0.6,2.62 -7.05,2.819998 -4.83,1.61 -5.03,1 -3.63,-1.21 -2.01,0.61 -3.82,0.8 -1.21,-1 -2.42,-1.41 -3.62,2.21 -4.43,-0.2 -6.04,-0.6 -3.02,-0.41 -2.61,-2.21 -5.24,-0.799998 -1.81,-1.82 -2.21,-1 -1.01,-3.63 2.82,-1.81 1.81,-2.21 -0.8,-3.63 -1.61,-1 -2.62,1.21 -5.03,1.61 -1.82,0.8 -2.41,-0.2 -1.61,0.4 -1.01,2.02 -2.01,-0.61 -2.62,-2.01 -3.02,-0.2 -4.02,-1.61 -3.02,-1.41 -2.22,-2.62 -2.21,-5.23 -0.4,-5.24 3.02,-8.45 0.4,-2.62 -2.01,-3.62 -1.21,-2.82 -0.2,-6.04 0.4,-4.63 2.01,-5.43 3.02,-4.83 1.21,-5.64 2.62,-2.62 0.2,-5.83 2.01,-3.22 3.83,-3.43 0.2,-4.8299998 1.61,-3.22 0.17,-3.55 0,0" />
                       <path class="map-region" data-name="Андижан" title="Andijon" id="UZ-AN" d="m 750.33007,320.40972 -0.11,-3.61 -0.31,-0.84 -4.01,-1.28 -2.25,-0.45 -0.24,0.17 -0.33,0 -9.25,-1.57 -2.24,-3.46 -0.62,-0.65 -3.02,-1.56 -4.16,-0.6 -0.2,1.45 -3.03,-4.48 0,0 1.9,-1.21 -2.2,-2.67 2.03,-1.9 1.19,-0.8 8.59,-2.19 3.68,0.03 0.57,0.26 0.73,0.56 3.33,0.74 1.46,0.15 4.88,-0.44 0.53,-0.27 0.4,-0.45 1.26,-5.87 0,0 0.24,0.15 0.67,-0.01 2.85,-1.35 0.76,-0.18 1.22,-0.92 1.13,-1.24 0.69,-0.07 0.15,0.18 1.32,0.35 0.97,0.68 0.89,0.05 0.79,0.4 0.86,-0.09 0.78,0.17 0.66,0.32 0.26,1.17 -0.1,0.65 -0.82,1.52 0.01,0.22 0.18,0.22 0.15,-0.02 0.46,-0.72 0.23,-0.05 0.24,-0.03 0.47,0.24 0.42,0.39 1.32,2.26 0.58,0.69 0.2,2 0.77,0.55 1.2,0.35 1.33,0.65 1.57,0.58 0.55,-0.2 1.82,0.29 0.94,-0.4 0.92,-0.19 0.68,0.21 2.21,-0.56 0.72,0.02 0.82,0.45 1.52,1.67 0.38,1.05 0.17,0.15 0.66,0.16 0.51,-0.04 0.65,-0.25 0.19,-0.3 0.64,-0.33 0.4,-0.48 0.58,-0.02 0.35,-0.21 -0.15,-0.54 -0.58,-0.4 -0.35,-0.49 0.43,-1.42 0.23,-0.23 0.43,0.01 1.01,1.46 0.9,0.2 1.13,0.76 0.95,-0.52 1.5,0.07 0.43,0.38 0.23,0.97 -0.43,1.74 -0.43,0.61 -0.45,0.31 -2.88,1.21 -1.66,0.24 -0.63,0.87 -1.16,0.8 -1.4,0.78 -0.81,0.17 -0.05,0.23 -0.87,0.2 -1.34,0.74 -1,0.96 -1.54,0.5 -1.13,-0.15 -0.79,0.11 -0.31,0.36 -0.05,0.32 0.14,0.44 0.38,0.46 0.03,0.34 -0.74,0.61 -0.1,0.42 0.18,2.74 -0.07,1.07 -0.65,0.21 -0.52,-0.3 -0.96,-0.98 -1.5,-0.34 -0.32,0.37 -0.05,0.76 -0.87,0.63 -0.14,0.24 -0.21,1.4 -0.58,1.07 -0.67,0.16 -0.42,-0.04 -1.39,-1.12 -1.47,-0.07 -0.69,-0.38 -0.91,-0.87 -0.51,-0.18 -0.68,0.29 -0.21,-0.04 -1.37,-1.67 -0.55,-1 -1.39,-1.17 -0.4,-0.19 -0.98,0.43 -1.1,0.01 -0.4,0.54 0.15,0.28 1.12,0.38 0.32,0.31 0.46,1.03 1.05,0.32 0.41,0.56 -0.04,0.55 -0.35,0.4 -1.03,0.1 -0.27,0.19 -0.17,0.51 0.14,0.45 1.08,-0.11 0.26,0.37 0.23,1.47 0.49,0.53 0.24,0.75 -1.14,2.67 0.28,0.83 -0.07,0.64 -0.17,0.16 -0.3,0.06 -1.48,-0.38 -0.45,-0.27 -1.55,-1.6 -0.65,-0.46 -0.29,-0.1 -0.8,0.3 -0.32,-0.21 -0.5,-0.71 -0.29,-0.21 -0.9,0.01 -0.27,-0.11 -0.18,-0.4 0.33,-1.13 -0.06,-0.25 -0.45,-0.27 z" />
                       <path class="map-region" data-name="Бухара" title="Buxoro" id="UZ-BU" d="m 421.26007,383.36972 -3.77,3.59 -3.35,2.22 -0.57,0.11 -4.4,4.71 -0.35,1.03 0.15,0.86 0.71,1.2 0.83,0.88 0.82,1.17 0.23,0.51 -0.28,0.61 -18.12,6.64 -5.61,6.23 0,0 -2.13,-2.3 -0.41,-0.03 -1.18,0.3 -2.1,1.21 -1,0.26 -1.05,0.02 -1.38,-0.18 -0.85,-0.42 -2.95,-2.43 -2.87,-2 -6.79,-5.22 -1.82,-1.17 -4.68,-3.44 -1.31,-1.29 -1.15,-1.39 -0.29,-0.63 -0.41,-0.37 -0.78,-1.23 -3.57,-3.46 -2.02,-2.15 -3.97,-2.81 -4.38,-2.62 -4.45,-3.15 -4.24,-2.78 -10.26,-7.3 -6.96,-4.77 -14.33,-10.53 -1.18,-1.1 -0.91,-1.29 -0.16,-0.53 -0.2,-0.9 0.06,-0.55 -0.29,-0.7 -0.13,-1.75 -1.41,-2.07 0.02,-0.65 0.69,-1.19 0.08,-2.63 -0.38,-1.01 -0.14,-1.23 -0.59,-2.04 -0.06,-1.14 -0.23,-0.77 0.04,-0.6 0.36,-0.91 -0.03,-1.01 -0.75,-1.34 -1.16,-1.05 -0.72,-1.06 -0.06,-0.51 0.5,-1.54 0.29,-1.47 -0.04,-0.31 -1.32,-0.52 -1.32,-0.84 -1.32,-1.45 -1.27,-0.57 -1.32,-0.87 -0.4,-0.56 0,0 6.28,-7.61 4.59,-5.13 0.79,-3.8 0.03,-1.54 -0.68,-1.15 -5.91,-6.68 -3.24,-3.33 0,0 10.94,-5.06 -13.78,-19.18 0,0 0.56,-0.28 3.67,-0.92 13.55,-3.21 1.05,-0.08 3.34,6.7 1.39,2.06 2.15,2.32 2.39,1.55 3.54,1.9 1.57,1.58 2.08,4.35 1.4,5.15 0.57,1.39 0.88,-0.09 0.45,-0.37 2.04,-0.05 3.16,0.91 5.38,2.31 8.48,4.6 9.83,5.7 2.12,1.67 0.56,1.05 0.34,1.49 -0.48,2.23 3.4,-0.09 2.64,-0.23 0.55,-0.19 5.38,-12.19 1.04,-1.09 2.19,-1.17 0.88,0.15 1.67,1.93 0.1,7.61 16.19,1.89 0.19,-0.49 0.82,-4.49 0.57,-0.19 5.02,-0.58 3.79,-0.06 2.27,-0.38 1.13,-2.68 0.72,-2.1 0.45,-0.19 0.97,0.22 0.79,2.83 2.14,10.12 1.14,1.1 0.8,0.42 1.03,0.34 8.63,1.19 5.93,0.63 7.97,1.14 -1.4,9.26 -3.99,2.81 -0.17,1.03 -1.45,4.13 -3.35,4.14 -0.64,0.61 -0.94,0.38 -3.85,-0.23 -2.9,-0.54 -2.01,-0.99 -0.82,-0.79 -2,-1.3 -2.06,-0.12 -1.11,0.48 -0.36,0.62 0.36,3.32 -0.45,4.36 -1.29,5.71 -2.53,4.78 -2.13,2.47 -4.4,2.67 -0.89,0.33 -1.42,2.72 4.27,5.79 1.19,1.15 7.06,2.67 1.08,0.06 3.2,-0.78 4.91,3.69 4.39,9.39 0.36,1.15 z" />
-                      <path class="map-region" data-name="Фергана" title="Farg‘ona" id="UZ-FA" d="m 673.77007,331.35972 0.1,-0.66 -0.23,-0.55 -0.74,-0.66 -2.91,-1.31 -1.63,-0.33 -1,-0.4 -0.32,0 -0.9,0.43 -0.43,-0.03 -0.46,-0.21 -0.33,-0.37 -0.46,-1.11 -0.29,-0.31 -0.28,-0.1 -0.15,-0.74 -0.91,-1.77 -0.06,-0.61 0.13,-0.2 0.81,-0.22 1,-0.81 1.19,-0.22 1.1,-0.57 2.05,-0.72 0.8,0 0.47,-0.41 0.12,-0.81 0.44,-0.44 0.14,-0.89 0.19,-0.4 0.4,-0.22 0.59,-0.08 0.77,0.07 0.48,-0.36 0.72,-0.02 0.43,-0.16 0.87,-1.11 1.11,-2.22 0.36,-0.38 0.65,-0.18 0.68,-0.73 0.51,-0.17 0.15,-0.28 0.41,-0.08 0.41,-0.5 0.97,-0.22 0.4,0.28 0.32,0.03 0.05,-0.66 -0.18,-0.99 0.31,-0.23 0.28,0.25 0.66,-0.04 0.44,-0.58 0.3,-1 0.58,-0.53 0.06,-0.26 0,0 0.34,-0.09 0.26,-0.26 4.87,-1.25 3.37,-0.61 6.76,-0.1 0,0.22 -0.37,0.52 -1.36,1.66 0.83,1.97 1.87,1.86 5.59,2.73 0.4,0.08 0.75,-0.42 3.02,-2.85 0.76,-0.99 0.74,-1.45 1.24,-0.8 4.11,-2.23 3.44,-1.03 0,0 3.03,4.48 0.2,-1.45 4.16,0.6 3.02,1.56 0.62,0.65 2.24,3.46 9.25,1.57 0.33,0 0.24,-0.17 2.25,0.45 4.01,1.28 0.31,0.84 0.11,3.61 0,0 -0.49,0.04 -1.07,-0.26 -0.39,0.08 -0.51,1.38 -0.3,0.5 -0.63,0.6 -0.46,0.24 -0.37,0.07 -0.59,-0.2 -0.89,-0.59 -0.46,1.04 0.45,1.71 -0.14,0.34 -0.64,0.71 -0.07,0.57 -0.29,0.4 -1.37,0.41 -1.04,1.34 -0.51,0.38 -0.8,1.13 -1.19,0.52 -0.93,0.86 -0.12,0.26 0.21,0.5 0.98,0.23 0.98,0.89 -0.07,0.49 -1.11,1.03 -0.46,1.08 -0.29,0.32 -0.66,0.33 -0.62,-0.02 -1.27,-0.92 -2.02,-0.47 -0.48,0.39 -0.13,0.48 0.05,0.27 0.74,1.13 0.02,0.53 -0.75,0.5 -0.54,-0.03 -2.49,1.59 -1.32,0.42 -0.92,0.66 -0.35,0.06 -0.25,-0.14 -0.46,-0.85 -0.43,-0.51 -0.24,-0.07 -0.36,-0.4 -0.15,-0.36 0.17,-1.9 -0.19,-0.81 -0.68,-0.91 -0.52,-0.36 -0.77,-0.08 -1.23,0.12 -0.11,0.84 0.24,1.43 -0.21,0.95 0.08,0.56 -0.12,0.2 -0.29,-0.03 -0.81,-0.96 -1,0 -0.55,0.19 -0.92,-0.58 -1.77,-0.79 -0.22,-0.54 0.19,-1.35 -0.24,-0.52 -1.3,-0.03 -1.54,-0.4 -0.63,-0.5 -1.09,-1.23 -0.41,-0.27 -0.49,-0.15 -0.5,0.22 -0.62,0.06 -0.16,-0.31 0.09,-0.39 -0.32,-0.25 -1.53,0.64 -0.75,0.1 -0.27,-0.1 -0.15,-0.27 -0.02,-1 -1.54,0.11 -1.01,-0.34 -1,-0.09 -0.83,0.11 -1.38,0.46 -0.98,-0.02 -0.61,0.21 -2.56,1.78 -1.95,0.35 -2.07,0.9 -0.45,0.29 -0.14,0.27 0.31,0.92 -0.11,0.97 -2.38,0.07 -1.95,0.35 -0.27,-0.09 -1.7,1.26 -2.47,1.1 -1.58,0.33 -1.4,0.12 -3.13,0.69 -0.83,-0.34 -1.18,-2.14 -0.32,-0.88 -0.72,-0.39 -0.53,-0.94 0.13,-0.11 0.07,-1.28 0.37,-0.99 -0.55,-1.75 z" />
+                      <path class="map-region" data-name="Фергана" title="Farg'ona" id="UZ-FA" d="m 673.77007,331.35972 0.1,-0.66 -0.23,-0.55 -0.74,-0.66 -2.91,-1.31 -1.63,-0.33 -1,-0.4 -0.32,0 -0.9,0.43 -0.43,-0.03 -0.46,-0.21 -0.33,-0.37 -0.46,-1.11 -0.29,-0.31 -0.28,-0.1 -0.15,-0.74 -0.91,-1.77 -0.06,-0.61 0.13,-0.2 0.81,-0.22 1,-0.81 1.19,-0.22 1.1,-0.57 2.05,-0.72 0.8,0 0.47,-0.41 0.12,-0.81 0.44,-0.44 0.14,-0.89 0.19,-0.4 0.4,-0.22 0.59,-0.08 0.77,0.07 0.48,-0.36 0.72,-0.02 0.43,-0.16 0.87,-1.11 1.11,-2.22 0.36,-0.38 0.65,-0.18 0.68,-0.73 0.51,-0.17 0.15,-0.28 0.41,-0.08 0.41,-0.5 0.97,-0.22 0.4,0.28 0.32,0.03 0.05,-0.66 -0.18,-0.99 0.31,-0.23 0.28,0.25 0.66,-0.04 0.44,-0.58 0.3,-1 0.58,-0.53 0.06,-0.26 0,0 0.34,-0.09 0.26,-0.26 4.87,-1.25 3.37,-0.61 6.76,-0.1 0,0.22 -0.37,0.52 -1.36,1.66 0.83,1.97 1.87,1.86 5.59,2.73 0.4,0.08 0.75,-0.42 3.02,-2.85 0.76,-0.99 0.74,-1.45 1.24,-0.8 4.11,-2.23 3.44,-1.03 0,0 3.03,4.48 0.2,-1.45 4.16,0.6 3.02,1.56 0.62,0.65 2.24,3.46 9.25,1.57 0.33,0 0.24,-0.17 2.25,0.45 4.01,1.28 0.31,0.84 0.11,3.61 0,0 -0.49,0.04 -1.07,-0.26 -0.39,0.08 -0.51,1.38 -0.3,0.5 -0.63,0.6 -0.46,0.24 -0.37,0.07 -0.59,-0.2 -0.89,-0.59 -0.46,1.04 0.45,1.71 -0.14,0.34 -0.64,0.71 -0.07,0.57 -0.29,0.4 -1.37,0.41 -1.04,1.34 -0.51,0.38 -0.8,1.13 -1.19,0.52 -0.93,0.86 -0.12,0.26 0.21,0.5 0.98,0.23 0.98,0.89 -0.07,0.49 -1.11,1.03 -0.46,1.08 -0.29,0.32 -0.66,0.33 -0.62,-0.02 -1.27,-0.92 -2.02,-0.47 -0.48,0.39 -0.13,0.48 0.05,0.27 0.74,1.13 0.02,0.53 -0.75,0.5 -0.54,-0.03 -2.49,1.59 -1.32,0.42 -0.92,0.66 -0.35,0.06 -0.25,-0.14 -0.46,-0.85 -0.43,-0.51 -0.24,-0.07 -0.36,-0.4 -0.15,-0.36 0.17,-1.9 -0.19,-0.81 -0.68,-0.91 -0.52,-0.36 -0.77,-0.08 -1.23,0.12 -0.11,0.84 0.24,1.43 -0.21,0.95 0.08,0.56 -0.12,0.2 -0.29,-0.03 -0.81,-0.96 -1,0 -0.55,0.19 -0.92,-0.58 -1.77,-0.79 -0.22,-0.54 0.19,-1.35 -0.24,-0.52 -1.3,-0.03 -1.54,-0.4 -0.63,-0.5 -1.09,-1.23 -0.41,-0.27 -0.49,-0.15 -0.5,0.22 -0.62,0.06 -0.16,-0.31 0.09,-0.39 -0.32,-0.25 -1.53,0.64 -0.75,0.1 -0.27,-0.1 -0.15,-0.27 -0.02,-1 -1.54,0.11 -1.01,-0.34 -1,-0.09 -0.83,0.11 -1.38,0.46 -0.98,-0.02 -0.61,0.21 -2.56,1.78 -1.95,0.35 -2.07,0.9 -0.45,0.29 -0.14,0.27 0.31,0.92 -0.11,0.97 -2.38,0.07 -1.95,0.35 -0.27,-0.09 -1.7,1.26 -2.47,1.1 -1.58,0.33 -1.4,0.12 -3.13,0.69 -0.83,-0.34 -1.18,-2.14 -0.32,-0.88 -0.72,-0.39 -0.53,-0.94 0.13,-0.11 0.07,-1.28 0.37,-0.99 -0.55,-1.75 z" />
                       <path class="map-region" data-name="Джизак" title="Jizzax" id="UZ-JI" d="m 580.63007,374.69972 -0.48,0.25 -0.21,1.54 -0.32,1.02 -0.82,0.73 -1.08,-0.38 -1.15,0.26 -2.96,-0.47 -1.86,0.81 -0.39,-0.12 -0.79,-0.76 -0.51,-0.24 -1.42,-0.32 -1.77,-0.21 -1.26,0.14 -0.93,0.26 -0.74,-0.13 -1.02,-0.59 -0.74,0.1 -2.23,-0.16 -0.97,-0.48 -0.74,-0.19 -1.09,0.09 -0.6,-0.15 -1.1,-0.85 -0.91,-0.37 -1.37,-0.08 -0.92,0.1 -1.87,-0.84 -0.96,-0.88 -1.38,-0.08 -2.43,-1.65 -0.7,0.39 -1.21,0.32 -1.93,-0.83 -0.4,-0.01 -0.88,1.02 -1.09,0.38 -0.64,0.45 -0.94,1.53 -0.58,0.16 -1.43,0.03 -3.98,1.49 -0.12,0.68 0.2,1.61 -0.41,0.51 -2.22,-0.55 -0.46,0.11 -0.35,0.8 -0.02,1.31 0.32,0.51 0,0 -4.53,-3.82 -1.03,-1.05 -0.65,-0.96 -0.21,-0.95 -0.02,-4.16 0.1,-0.37 3.22,-5.24 0.76,-0.91 0.69,-0.54 2.16,-1.03 1.54,-0.38 1.3,-0.15 -0.08,-1.02 -1.07,-5.96 -0.21,-0.24 -11.87,-2.53 -4.81,-0.4 -2.12,-0.8 -5.83,-3.93 -0.35,-3.71 0.1,-0.35 1.24,-0.29 0.24,-0.16 0.45,-1.34 0.07,-0.81 -1.44,-2.81 -1.86,-1.66 -0.84,-4.1 -0.1,-3.93 0.14,-0.77 0.83,-1.83 -0.01,-1.1 -0.96,-2.18 -4.61,-0.1 -7.79,-0.92 0,0 0.73,-1.79 4.43,-8.59 3.12,-5.32 0.28,-0.74 -1.57,-6.86 -0.23,-0.53 -0.25,-0.23 -4.27,-1.05 -0.95,-0.58 -0.72,-1.27 -1.13,-10.64 6.71,-0.22 0.29,-2.93 0.22,0.04 0.52,-4.76 0,0 17.4,1.31 4.64,0.52 2.72,0.01 0.85,0.56 0.87,0.13 1.25,-0.41 1.27,-0.2 15.41,0.47 1.41,1.29 0.87,0.23 2.05,2.49 3.32,3.08 1.47,-1.3 0.84,1.19 3.05,-1.98 1.38,1.29 0.59,-0.26 0.79,0.47 -2.47,0.53 -1.41,1.48 1.39,3.45 -1.48,1.47 0.08,5.22 -4.07,0.15 -0.73,2.28 1.44,2 2.44,0.68 5.77,3.4 3.59,4.03 3.79,1.34 0.44,0.38 0,0 -0.17,2.84 -0.34,0.61 -1.86,-0.1 -2.1,0.54 -0.48,4.89 0.16,0.27 2.11,-1.02 0.33,-0.1 0.16,0.2 -0.15,0.77 -0.77,2 -4.95,11.04 -0.2,1.52 0.15,0.96 0.34,0.9 0.66,0.97 0.32,0.05 6.55,0.31 4.57,-0.17 4.02,-0.82 2.28,-0.79 7.13,-1.64 0.31,0.68 -1.01,6.41 0,0 -1.55,0.28 -0.09,0.14 -2.89,0.84 -0.24,0.6 0.86,0.8 2.62,1.54 1.23,-0.03 2.15,-0.45 1.31,-0.56 2.87,-0.81 1.23,-0.55 3.43,-0.89 1.68,-0.21 3.15,-0.11 0.84,0.65 0.41,1.28 0.45,2.38 -0.32,0.66 -0.75,0.06 -1.53,-0.36 -0.9,-0.01 -0.75,0.03 -1.52,0.35 -1.17,0.88 -0.21,1.04 -0.15,0.12 -0.46,-0.26 -0.3,-1.29 -0.73,-1.1 -0.65,-0.1 -0.58,0.2 -0.24,0.28 -0.03,0.53 0.35,0.57 0.94,0.94 0.05,0.63 -0.41,1.35 0.03,0.3 1.5,1.4 2.61,3.24 0.54,1.1 0.04,0.75 -0.2,0.69 -0.71,0.72 -0.81,0.1 -0.62,-0.31 -0.6,-0.94 -0.07,-1.78 -1.35,-3.21 -0.72,-0.88 -0.4,-0.07 -0.47,0.22 -0.12,0.4 0.08,1.1 1.04,1.98 0.81,1.92 0.03,0.69 -0.36,0.8 -0.36,0.27 -0.92,0.21 -0.3,0.39 -0.27,1.43 -0.24,0.22 -0.46,0.11 -0.56,-0.42 -0.31,-1.27 -0.78,-0.89 -0.46,-0.13 -1.47,1.23 -0.51,-0.3 -1.2,-0.15 -0.09,1.15 0.3,1.67 -0.32,1.31 -0.49,0.85 -0.25,0.92 -0.3,0.56 -0.64,0.27 -0.63,0.04 -0.42,0.51 0.27,0.64 1.88,2.68 -0.27,1.72 -2.37,2.68 z" />
                       <path class="map-region" data-name="Наманган" title="Namangan" id="UZ-NG" d="m 749.31007,281.14972 -0.5,-0.84 -0.46,-0.29 -0.45,-0.07 -0.45,0.24 -1.05,-0.35 -0.76,-0.03 -1.88,1.36 -0.35,0.08 -0.68,-0.3 -1.74,-1.12 -1.14,-0.31 -1.22,-0.14 -1.16,0.79 -0.46,-0.22 -0.56,-0.05 -1.62,-0.65 -0.32,-0.41 0.02,-0.88 -0.56,-0.06 -0.37,-0.2 -0.07,-0.21 0.64,-2 0.92,-1.61 0.78,-0.8 0.47,-0.82 0.56,-1.35 -0.05,-0.25 -1.08,-0.58 -0.85,-1.03 -0.28,-0.65 0.13,-1.3 -0.14,-0.37 -0.38,-0.28 -0.41,0.24 -0.34,0.56 -0.81,0.17 -0.25,-0.17 -0.06,-0.19 0.26,-1.3 -0.62,-1.06 -1.4,-1.35 -1.05,-2.21 -0.37,-0.1 -0.14,0.12 -0.11,1.69 -0.17,0.26 -0.31,0.07 -0.21,-0.41 -0.1,-0.68 -0.31,-0.27 -0.38,-0.03 -0.63,0.45 -0.12,0.4 0.41,0.66 -0.06,0.56 -0.27,0.21 -0.42,-0.26 -0.41,-0.71 -0.1,-0.46 0.09,-0.43 0.84,-1.1 0.46,-0.83 0.07,-0.47 -0.24,-1.41 0.13,-0.3 -0.06,-0.74 0.43,-0.9 -0.35,-0.61 -1.14,-0.05 -0.36,0.1 -0.77,0.72 -0.76,1.36 -0.44,0.5 -1.26,0.43 -0.24,0.35 0.05,0.42 0.32,0.24 1.14,0.11 0.57,0.23 0.5,0.78 0.13,0.68 -0.34,1.22 -0.44,0.81 -0.04,0.41 0.8,1.23 -0.29,0.66 -0.66,0.72 -0.36,0.7 -0.27,0.98 -0.22,0.01 -0.36,-0.25 -0.26,0.25 -0.32,0.72 -0.6,0.49 -0.17,0.58 -0.17,0.04 -0.25,0.95 -0.38,0.32 -0.6,-0.16 -0.61,-0.69 -0.4,-0.22 -0.88,-0.02 -0.42,0.35 -0.67,0.14 -0.82,-0.51 -0.32,0.07 -1.44,1.72 -0.05,0.41 0.25,0.77 -0.26,0.85 0,0.53 0.18,0.37 0.86,0.37 0.3,0.72 -0.89,2 -0.32,1.99 -0.71,1.61 -0.03,0.37 -1.03,1.12 -0.53,0.04 -0.26,-0.17 -0.15,-0.29 -0.23,-1.77 -0.23,-0.49 -0.79,-0.83 -0.39,-0.19 -0.54,0.01 -0.51,0.3 -0.35,0.41 -0.23,1.41 -0.4,0.76 -0.8,0.75 -0.51,0.12 -0.38,-0.11 -0.14,-0.3 0.22,-2.39 -0.26,-1.43 -0.26,-0.42 -0.95,-0.63 -0.3,-0.04 -0.62,0.29 -0.13,0.4 0.04,0.54 -0.31,0.23 -0.28,-0.06 -0.43,-1.06 -0.32,-0.01 -0.35,0.3 -0.47,0.72 -0.48,-0.02 -0.26,0.15 -0.83,0.88 -0.5,0.29 -0.4,0.03 -1.21,-0.43 -0.41,-0.37 -0.61,-1.02 -0.8,-0.19 -1.23,-0.8 -0.59,0.03 -2.66,1.81 -0.56,-0.2 -0.54,-1.23 -0.92,-0.86 -0.86,-0.54 -0.58,-0.85 -0.53,-0.5 -0.27,-0.04 -0.71,0.32 -0.47,0.68 -0.83,2.06 -0.3,0.44 -0.33,0.16 -0.86,-0.35 -0.5,-0.61 -0.22,-0.9 0.03,-1.09 0.74,-0.95 0.18,-0.6 -0.1,-0.35 -0.62,-0.91 -0.25,-0.74 -0.07,-1.79 0.42,-0.92 0.25,-1.16 -0.49,-2.05 -2.55,-4.08 -0.42,-1.17 -0.19,-0.16 -1.21,-0.34 -0.31,0.03 -1.14,0.85 -1.23,-0.06 -1.52,0.48 -0.98,0.84 -0.41,0.74 -1.68,1.39 -2.08,0 -0.5,-0.54 0,0 -0.68,1.93 -2.97,4.11 0.67,7.3 1.91,2.62 0.66,1.34 0.24,2.33 0.03,1.75 -0.15,0.88 0.2,0.42 0,0 0.45,-0.02 0.73,0.4 0.27,0.68 1.1,0.89 0.07,0.62 0.32,0.24 0.88,1.19 0.68,0.02 0.55,1.37 1.01,1.25 0.39,0.89 1.11,1.65 0.46,1.18 0.27,0.01 0.12,0.37 0.97,0.83 0.56,1.37 0.83,0.31 0.53,0.47 0.73,0.99 -0.48,0.38 -0.17,-0.09 -0.29,0.18 0.08,0.32 -0.19,0.29 -0.37,0.1 -0.57,-0.25 -0.47,-1.21 -0.37,1.24 0.04,0.71 0.32,0.64 0.83,-0.24 1.23,0.1 0.85,0.45 -0.28,0.18 0.9,0.04 0.43,0.23 1,0.85 0.22,0.49 0,0 0.34,-0.09 0.26,-0.26 4.87,-1.25 3.38,-0.61 6.75,-0.1 0,0.22 -0.37,0.52 -1.36,1.66 0.83,1.97 1.88,1.85 5.58,2.73 0.4,0.08 0.76,-0.42 3.02,-2.85 0.76,-1 0.75,-1.45 1.23,-0.79 4.11,-2.23 3.44,-1.03 0,0 1.9,-1.21 -2.2,-2.67 2.03,-1.89 1.2,-0.8 8.59,-2.19 3.67,0.03 0.58,0.25 0.73,0.56 3.33,0.75 1.46,0.15 4.88,-0.44 0.53,-0.27 0.4,-0.46 1.26,-5.86 0,0 -0.42,-0.26 -0.45,-0.58 0.16,-0.33 1.26,-0.3 0.53,-0.41 0.47,-1.02 -0.45,-0.82 -0.77,-4.63 z" />
                       <path class="map-region" data-name="Навои" title="Navoiy" id="UZ-NW" d="m 498.40007,274.98972 -0.52,4.76 -0.22,-0.04 -0.29,2.93 -6.71,0.22 1.13,10.64 0.72,1.27 0.95,0.58 4.27,1.05 0.25,0.23 0.23,0.53 1.57,6.86 -0.28,0.74 -3.12,5.32 -4.43,8.59 -0.73,1.79 0,0 -1.26,-3.47 -1.86,-2.66 -0.97,-1.12 -0.58,-0.27 -2.11,1.92 -2.35,1.29 -1.38,0.11 -1.83,-0.25 -1.04,-0.79 -1.03,-1.55 -1.19,-0.09 -1.11,0.19 -0.91,1.08 -2.15,4.68 -0.59,4.91 0.25,0.35 0.54,0.2 0.37,0.72 -0.17,2.27 -0.88,6.12 -0.86,1.34 -2.3,6.07 0.2,0.98 0.8,0.1 1.43,-0.92 0.82,0.07 0.18,0.45 -0.14,1.12 -0.43,0.62 -3.49,3.29 -1.63,0.76 -8.91,1.93 -1.22,-0.2 -5.38,-2.3 -2.09,-1.14 -0.46,-1.04 -1,-1.55 -5.48,-2.07 -1.01,-0.17 -0.52,0.28 -0.35,0.57 -0.16,0.7 0.05,0.97 -0.42,5.8 -1.83,5.54 -0.71,1.29 -0.52,0.3 -0.59,0.01 -2.85,-0.88 -1,-0.49 -8.65,2.92 -0.5,0.35 -0.08,0.37 0.33,0.77 1.48,1.53 0.97,0.81 0.94,1.45 1.35,5.22 -0.17,0.97 -0.51,1.46 -1.17,2.34 -0.04,0.63 0.17,0.81 0.81,1.81 2.12,3.8 0,0 -0.4,0.43 -0.53,0.21 -2.6,0.4 -1.39,0.37 -0.8,0.38 -1.17,0.81 0,0 0,0 0,0 -0.29,-3.38 -0.36,-1.15 -4.39,-9.39 -4.91,-3.69 -3.2,0.78 -1.08,-0.06 -7.06,-2.67 -1.19,-1.15 -4.27,-5.79 1.42,-2.72 0.89,-0.33 4.4,-2.67 2.13,-2.47 2.53,-4.78 1.29,-5.71 0.45,-4.36 -0.36,-3.32 0.36,-0.62 1.11,-0.48 2.06,0.12 2,1.3 0.82,0.79 2.01,0.99 2.9,0.54 3.85,0.23 0.94,-0.38 0.64,-0.61 3.35,-4.14 1.45,-4.13 0.17,-1.03 3.99,-2.81 1.4,-9.26 -7.97,-1.14 -5.93,-0.63 -8.63,-1.19 -1.03,-0.34 -0.8,-0.42 -1.14,-1.1 -2.14,-10.12 -0.79,-2.83 -0.97,-0.22 -0.45,0.19 -0.72,2.1 -1.13,2.68 -2.27,0.38 -3.79,0.06 -5.02,0.58 -0.57,0.19 -0.82,4.49 -0.19,0.49 -16.19,-1.89 -0.1,-7.61 -1.67,-1.93 -0.88,-0.15 -2.19,1.17 -1.04,1.09 -5.38,12.19 -0.55,0.19 -2.64,0.23 -3.4,0.09 0.48,-2.23 -0.34,-1.49 -0.56,-1.05 -2.12,-1.67 -9.83,-5.7 -8.48,-4.6 -5.38,-2.31 -3.16,-0.91 -2.04,0.05 -0.45,0.37 -0.88,0.09 -0.57,-1.39 -1.4,-5.15 -2.08,-4.35 -1.57,-1.58 -3.54,-1.9 -2.39,-1.55 -2.15,-2.32 -1.39,-2.06 -3.34,-6.7 -1.05,0.08 -13.55,3.21 -3.67,0.92 -0.56,0.28 0,0 -20.92,-28.67 12.85,-7.1 -6.74,-12.15 1.26,-15.77 27.66,-52.21 -15.44,-4.18 -5.85,-10.49 0,0 42.36,-8.25 20.45,-3.61 3.48,0.68 3.01,0.36 9.7,1.05 5.93,0.38 2.4,0.42 14.18,1.09 13.64,0.67 0.2,-0.15 0.85,-0.04 10.52,-5.17 7,-3.06 4.38,-2.19 2.06,-0.51 1.08,-0.11 1.67,0.07 0.83,0.32 0.76,0.58 0.99,1.14 5.73,12.62 2.02,1.91 3.6,3.74 10.88,9.68 1.5,6.07 6.64,21.39 12.57,-5.92 0.35,31.3 -0.05,7.21 -0.58,-0.18 -2.42,-1.23 -0.25,0 -0.1,6.6 -0.91,1.1 -0.3,16.64 0.07,2.15 24.14,2.92 3.48,39.7 z" />
                       <path class="map-region" data-name="Кашкадарья" title="Qashqadaryo" id="UZ-QA" d="m 421.26007,383.36972 1.17,-0.81 0.8,-0.38 1.39,-0.37 2.6,-0.4 0.53,-0.21 0.4,-0.43 0,0 0.69,0.16 17.55,0.53 1.49,-0.18 1.31,-0.55 1.43,-1.07 0.19,-0.27 0.04,-0.33 4.31,0.88 3.3,3.81 2.77,4.65 0.09,1.49 0.22,0.21 0.72,0.25 3.08,0.78 1.53,-0.04 2.21,-1.38 3.27,-1.67 7.55,-1.87 0.63,0.16 1.17,0.75 1.65,1.44 1.64,1.15 0.69,0.33 0.3,-0.01 3.64,-1.56 0.82,-0.96 1.1,-1.78 0.83,-0.95 0.81,-0.28 1.19,-0.06 8.57,1.53 0.63,0.67 0.49,1.32 -0.11,1.26 -0.46,1.7 0.06,0.58 0.33,0.48 0.93,0.53 1.89,0.15 3.88,-0.24 0.82,-0.21 0.42,-0.48 0.11,-0.35 -0.07,-1.78 0.43,-0.48 0.88,-0.05 4.46,1.27 2.56,1.09 3.84,1.19 1.65,0.32 1,-0.23 0,0 0.38,1.58 1.39,2.41 0.73,0.75 0.96,0.53 1.76,0.37 0.62,0.41 0.85,0.29 0.8,0.02 1.03,-0.22 1.08,0.19 1.02,0.47 0.65,1.67 0.57,0.23 1.59,0.08 0.28,0.29 -0.01,0.57 -0.35,0.51 -0.21,2.5 0.44,1.26 0.13,2.05 0.39,0.56 0,0 -0.8,0.82 -0.98,0.58 -3.99,0.23 -0.86,0.26 -0.51,0.25 -0.67,0.57 -0.45,0.84 -0.06,0.4 0.54,3.14 1.02,2.1 0.38,0.46 0.15,0.52 0.13,4.2 -1.34,4.3 -0.54,-0.18 -1.41,-1.43 -1,-0.32 -1.43,-0.07 -1.14,0.33 -0.45,0.34 -0.59,0.64 -0.81,1.3 -1.19,2.22 -8.89,8.88 -0.72,3.35 -0.16,1.52 -0.37,1.4 -0.45,0.87 -2.42,2.43 -1.83,1.28 -3.54,1.85 -11.58,12.1 -0.43,1.25 -1.04,4.27 0.27,0.9 0,0 -2.39,-2.79 -1.05,-0.67 -1.48,-0.61 -3.19,-0.35 -2.63,0.82 -0.57,0.06 -1.26,-0.33 -1.23,-1.07 -2.79,-1.64 -1.83,-2.07 -1.29,-2.33 -0.47,-0.3 -1.9,-0.11 -3.5,-1.03 -0.63,-0.4 -0.5,-0.97 -1.17,-0.4 -0.87,-0.13 -0.76,-0.8 -0.47,-0.17 -1.37,0.07 -0.83,-0.27 -0.9,-0.6 -1.91,-1.96 -0.9,-0.24 -1.07,0.01 -0.97,0.27 -0.73,1.4 -0.56,-0.07 -0.14,0.1 -0.16,0.64 -0.37,0.17 -0.53,0 -4.68,-0.96 -9.93,-3.92 -1.95,-1.12 -6.41,-4.13 -1.85,-1.49 -2.7,-2.52 -7.61,-7.6 -0.58,-0.39 -2.73,-1.25 -3.5,-1.33 -2.94,-1.37 -1.73,-1.26 -0.61,-0.66 -8.98,-5.55 -2.72,-1.9 -5.54,-5.13 -1.19,-1.31 0,0 5.61,-6.23 18.12,-6.64 0.28,-0.61 -0.23,-0.51 -0.82,-1.17 -0.83,-0.88 -0.71,-1.2 -0.15,-0.86 0.35,-1.03 4.4,-4.71 0.57,-0.11 3.35,-2.22 z" />
-                      <path class="map-region" data-name="Республика Каракалпакстан" title="Qoraqalpog‘iston" id="UZ-QR" d="m 157.43007,23.739722 0.35,7.72 -2.01,5.84 -3.22,5.44 -2.82,6.04 -1.01,4.23 -2.21,0 -1.81,0.2 -1.41,1.41 -0.6,2.62 0.81,4.63 1.21,2.62 0.81,2.82 -2.42,0.81 -3.02,-1.61 -2.42,1.41 -1.81,4.03 -2.42,4.23 -2.21,2.42 -3.02,-1.81 -0.4,-4.03 -0.2,-6.24 -1.21,-1.61 0,-3.45 1.61,0 1.21,2.82 1.81,1.01 2.82,-1.01 1.41,-3.02 0,-4.03 1.01,-3.22 -3.03,-1.81 -3.22,-2.62 -0.6,-2.42 1.81,-2.01 1.81,-0.4 2.01,1.01 0.2,-8.25 2.82,-0.4 -0.2,-3.22 -2.42,-0.6 -3.82,-0.6 -1.41,1.01 -1.61,2.01 -2.21,1.01 1.41,-2.21 2.82,-5.23 1.81,-2.62 -1.01,-3.02 -2.01,-2.82 0.6,-3.82 1.01,-3.42 3.4,-6.4299998 0,0 23.01,16.5899998 z m -38.32,-23.3999998 -0.18,3.55 -1.61,3.22 -0.2,4.8299998 -3.82,3.42 -2.01,3.22 -0.2,5.84 -2.62,2.62 -1.21,5.64 -3.02,4.83 -2.01,5.43 -0.4,4.63 0.2,6.04 1.21,2.82 2.01,3.62 -0.4,2.62 -3.02,8.45 0.4,5.23 2.21,5.23 2.21,2.62 3.02,1.41 4.03,1.61 3.02,0.2 2.62,2.01 2.01,0.6 1.01,-2.01 1.61,-0.4 2.42,0.2 1.81,-0.81 5.03,-1.61 2.62,-1.21 1.61,1.01 0.81,3.62 -1.81,2.21 -2.83,1.83 1.01,3.62 2.21,1.01 1.81,1.81 5.23,0.809998 2.62,2.21 3.02,0.4 6.04,0.6 4.43,0.2 3.62,-2.21 2.42,1.41 1.21,1.01 3.82,-0.81 2.01,-0.6 3.62,1.21 5.03,-1.01 4.83,-1.61 7.05,-2.819998 0.6,-2.62 3.42,0 1.21,-1.81 -1,-1.8 1.61,-3.42 6.24,-5.03 4.63,-4.63 2.82,-5.03 0.81,-3.82 -1.01,-1.41 -1.61,-1.41 -1.01,-2.01 3.88,-0.35 0,0 21.68,15.65 2.21,7.05 6.07,6.13 6.39,7.709998 0.29,0.64 0.64,0.59 2.53,3.01 5.7,7.01 16.83,20.9 1.63,1.56 0.55,0.05 0,0 5.85,10.5 15.43,4.18 -27.66,52.2 -1.26,15.77 6.74,12.15 -12.85,7.1 20.92,28.67 0,0 13.79,19.18 -10.94,5.06 0,0 -2.55,1.21 -0.65,-0.19 -0.27,-0.22 -4.56,-7.41 -1.5,-2.77 -8,-8.81 -3.08,-1.91 -3.52,-1.86 -8.95,-2.06 -3.04,-0.02 -0.62,0.2 -1.39,0.77 -0.78,0.89 -1.17,2.3 -0.51,1.87 -0.72,0.77 -1.49,0 -2.25,-1.44 -0.25,-1.16 -0.37,-0.87 -2.02,-2.27 -0.71,-0.61 -0.74,-0.29 -2.16,-0.36 -1.41,-0.58 -5.96,-4.54 -8.23,-7.31 -1.57,-1.5 -3.35,-3.9 -5.17,-4.83 -0.69,-0.31 -0.67,-0.65 -0.37,-0.46 -3.08,-5.39 -0.41,-2.46 -0.04,-2.63 -0.17,-0.58 -0.39,-0.48 -5.28,-1.12 -4.26,1.39 -1.9,0.84 -2.67,5.23 0,0 -0.22,-0.53 -0.5,-0.6 -0.55,-0.39 -2.42,-0.83 -0.81,-0.51 -1.78,-2.19 -0.17,0.04 -0.33,-0.35 -0.88,0.2 -1.26,-1.24 -0.19,-0.81 0.19,-0.34 0.56,-0.45 2.82,-0.2 0.35,-0.45 -0.2,-0.8 -0.51,-0.73 -0.41,-0.97 -0.22,-0.94 -0.16,-2.27 -1.26,-1.64 -0.03,-0.67 0.18,-0.48 1.09,-0.58 0.42,0.19 0.85,0.1 0.46,-0.11 0.45,-0.43 0.25,-0.39 0.02,-0.64 -0.49,-1.19 -0.48,-0.56 -0.99,-0.6 -1.75,-0.24 -0.58,-0.24 -0.82,-0.71 -0.83,-1.12 -0.68,-1.36 -0.63,-0.56 -1.97,-0.64 -1.04,-0.84 -0.31,0.55 -0.46,1.43 -0.36,0.35 -0.5,0.01 -1.8,-0.55 -0.68,-0.35 -0.46,0.02 -0.54,-0.21 -1.97,-0.04 -1.57,0.37 -1.51,0 -1.34,0.16 -7.41,0.1 -0.57,-0.45 -0.73,-1.4 -0.65,-0.3 -0.88,-1.06 -4.04,-4.03 -0.04,-0.4 0.46,-1.24 -0.11,-1.23 -3.41,-4.45 -0.47,-0.46 -1.11,-0.66 -0.4,-0.06 -1.09,0.3 -0.96,0.77 -0.57,0.24 -2.6,-0.17 -0.7,-0.22 -1.58,-0.86 -2.27,-0.66 -0.67,-0.32 -1.73,-1.5 -4.19,-4.6 -4.81,-5.35 -3.08,-3.9 -0.48,-0.43 -0.03,0.85 -0.31,1.18 0.1,0.55 0.89,0.89 0.04,0.29 -0.17,0.52 -0.34,0.22 -0.42,-0.01 -0.55,-0.31 -0.63,0 -0.51,0.63 0,0.17 0.69,0.57 0.26,0.42 -0.42,2.18 -0.31,0.49 -0.49,0.3 -1.15,-0.37 -2.65,0.5 -1.07,0.06 -1.32,-0.64 -1.21,-0.24 -1.19,-0.57 -1.49,-0.41 -2.9,-0.6 -0.9,0.03 -1.42,0.57 -1.04,0.6 -2.33,1.94 -0.62,0.06 -0.410003,0.35 -0.18,0.69 0.32,0.76 1.860003,1.35 2.37,1.33 0.99,0.38 1.35,0.25 0.45,0.54 2.67,6.2 1.3,2.05 0.57,0.68 0.19,0.94 -0.04,1.21 0.44,0.4 0.53,-0.13 3.15,1.98 0.96,0.79 0.13,0.71 -0.51,1.04 -0.37,0.26 -0.43,0.02 -2.11,-0.5 -1.87,0.38 -0.19,-0.67 0.12,-2.02 -0.11,-1.05 -0.81,-2.86 -0.71,-1.34 -0.89,-0.99 -1.25,-0.84 -4.85,-1.25 -0.8,0.05 -2.180003,1.13 -1.3,0.48 -0.19,-0.1 -0.19,-0.72 -0.92,-0.65 -0.29,-0.37 -0.27,-1.2 -0.85,-0.75 -0.96,-0.18 -1.43,0.31 -0.99,0.68 -0.53,-0.01 -0.27,0.29 -0.4,1.83 -0.29,0.75 -0.32,-0.13 -0.74,-0.86 -0.44,-0.11 -0.67,0.22 -0.22,0.39 -0.28,1.55 0.34,0.78 0.89,0.82 0.44,0.72 0.33,1.08 -0.02,0.54 -0.37,1.05 0.03,1.41 -0.24,1.11 0.12,1.55 -0.2,1.61 -0.18,0.6 -0.34,0.39 -0.47,0.16 -0.85,-0.03 -1.66,-0.69 -0.44,0.1 -0.28,0.52 -0.34,1.2 0.7,1.2 0.44,1.1 -0.19,0.42 -0.87,0.12 -3.06,-0.52 -2.59,0.89 -1.77,0.93 -0.74,0.18 -0.6,-0.02 -1.62,-0.99 -1.87,-0.37 -2.29,-0.18 -5.17,0.28 -1.96,0.73 -2.52,1.24 -2.19,1.6 -1.26,1.09 -1.12,1.61 -0.41,0.87 -0.68,1.59 -1.07,3.33 -0.61,0.85 -1.13,1.1 -0.71,0.43 -1.37,0.51 -2.16,0.64 -0.73,0.44 -0.86,0.79 -0.92,1.92 -0.31,2.04 -0.45,1.83 0.05,2.75 0.3,2.68 -0.14,2.73 0.56,2.37 0.4,0.99 0.38,0.5 -0.02,0.24 0.36,0.16 0.53,1.03 0.24,1.15 0.09,0.8 -0.2,1.22 0,2.34 0.42,3.14 0.3,0.99 0.38,0.72 1.85,2.64 0.91,0.02 1.95,-0.6 0.43,0.4 0.04,0.52 -0.32,0.71 -0.4,0.4 -0.53,0.33 -1.98,0.69 -0.84,0.79 -0.46,0.88 -0.04,1.5 -0.32,0.67 -0.49,0.54 -0.55,0.29 -1.32,0 -1.8,-0.44 -3.96,-0.34 -4.15,-0.59 -6.75,-0.42 -3.77,-0.08 -5.88,-0.68 -3.49,-0.26 -1.88,0.01 -5.1800003,-0.47 -9.41999997,-0.39 -0.08,-232.559998 1.51999997,-0.39 1.43,-0.63 30.1400003,-9.85 0.02,-0.13 1.67,-0.29 0.34,-0.35 1.01,-0.34 13.14,-4.2 43.66,-13.4999998 6.65,-2.22 2.220003,-0.46 17.06,-5.04 z" />
+                      <path class="map-region" data-name="Республика Каракалпакстан" title="Qoraqalpog'iston" id="UZ-QR" d="m 157.43007,23.739722 0.35,7.72 -2.01,5.84 -3.22,5.44 -2.82,6.04 -1.01,4.23 -2.21,0 -1.81,0.2 -1.41,1.41 -0.6,2.62 0.81,4.63 1.21,2.62 0.81,2.82 -2.42,0.81 -3.02,-1.61 -2.42,1.41 -1.81,4.03 -2.42,4.23 -2.21,2.42 -3.02,-1.81 -0.4,-4.03 -0.2,-6.24 -1.21,-1.61 0,-3.45 1.61,0 1.21,2.82 1.81,1.01 2.82,-1.01 1.41,-3.02 0,-4.03 1.01,-3.22 -3.03,-1.81 -3.22,-2.62 -0.6,-2.42 1.81,-2.01 1.81,-0.4 2.01,1.01 0.2,-8.25 2.82,-0.4 -0.2,-3.22 -2.42,-0.6 -3.82,-0.6 -1.41,1.01 -1.61,2.01 -2.21,1.01 1.41,-2.21 2.82,-5.23 1.81,-2.62 -1.01,-3.02 -2.01,-2.82 0.6,-3.82 1.01,-3.42 3.4,-6.4299998 0,0 23.01,16.5899998 z m -38.32,-23.3999998 -0.18,3.55 -1.61,3.22 -0.2,4.8299998 -3.82,3.42 -2.01,3.22 -0.2,5.84 -2.62,2.62 -1.21,5.64 -3.02,4.83 -2.01,5.43 -0.4,4.63 0.2,6.04 1.21,2.82 2.01,3.62 -0.4,2.62 -3.02,8.45 0.4,5.23 2.21,5.23 2.21,2.62 3.02,1.41 4.03,1.61 3.02,0.2 2.62,2.01 2.01,0.6 1.01,-2.01 1.61,-0.4 2.42,0.2 1.81,-0.81 5.03,-1.61 2.62,-1.21 1.61,1.01 0.81,3.62 -1.81,2.21 -2.83,1.83 1.01,3.62 2.21,1.01 1.81,1.81 5.23,0.809998 2.62,2.21 3.02,0.4 6.04,0.6 4.43,0.2 3.62,-2.21 2.42,1.41 1.21,1.01 3.82,-0.81 2.01,-0.6 3.62,1.21 5.03,-1.01 4.83,-1.61 7.05,-2.819998 0.6,-2.62 3.42,0 1.21,-1.81 -1,-1.8 1.61,-3.42 6.24,-5.03 4.63,-4.63 2.82,-5.03 0.81,-3.82 -1.01,-1.41 -1.61,-1.41 -1.01,-2.01 3.88,-0.35 0,0 21.68,15.65 2.21,7.05 6.07,6.13 6.39,7.709998 0.29,0.64 0.64,0.59 2.53,3.01 5.7,7.01 16.83,20.9 1.63,1.56 0.55,0.05 0,0 5.85,10.5 15.43,4.18 -27.66,52.2 -1.26,15.77 6.74,12.15 -12.85,7.1 20.92,28.67 0,0 13.79,19.18 -10.94,5.06 0,0 -2.55,1.21 -0.65,-0.19 -0.27,-0.22 -4.56,-7.41 -1.5,-2.77 -8,-8.81 -3.08,-1.91 -3.52,-1.86 -8.95,-2.06 -3.04,-0.02 -0.62,0.2 -1.39,0.77 -0.78,0.89 -1.17,2.3 -0.51,1.87 -0.72,0.77 -1.49,0 -2.25,-1.44 -0.25,-1.16 -0.37,-0.87 -2.02,-2.27 -0.71,-0.61 -0.74,-0.29 -2.16,-0.36 -1.41,-0.58 -5.96,-4.54 -8.23,-7.31 -1.57,-1.5 -3.35,-3.9 -5.17,-4.83 -0.69,-0.31 -0.67,-0.65 -0.37,-0.46 -3.08,-5.39 -0.41,-2.46 -0.04,-2.63 -0.17,-0.58 -0.39,-0.48 -5.28,-1.12 -4.26,1.39 -1.9,0.84 -2.67,5.23 0,0 -0.22,-0.53 -0.5,-0.6 -0.55,-0.39 -2.42,-0.83 -0.81,-0.51 -1.78,-2.19 -0.17,0.04 -0.33,-0.35 -0.88,0.2 -1.26,-1.24 -0.19,-0.81 0.19,-0.34 0.56,-0.45 2.82,-0.2 0.35,-0.45 -0.2,-0.8 -0.51,-0.73 -0.41,-0.97 -0.22,-0.94 -0.16,-2.27 -1.26,-1.64 -0.03,-0.67 0.18,-0.48 1.09,-0.58 0.42,0.19 0.85,0.1 0.46,-0.11 0.45,-0.43 0.25,-0.39 0.02,-0.64 -0.49,-1.19 -0.48,-0.56 -0.99,-0.6 -1.75,-0.24 -0.58,-0.24 -0.82,-0.71 -0.83,-1.12 -0.68,-1.36 -0.63,-0.56 -1.97,-0.64 -1.04,-0.84 -0.31,0.55 -0.46,1.43 -0.36,0.35 -0.5,0.01 -1.8,-0.55 -0.68,-0.35 -0.46,0.02 -0.54,-0.21 -1.97,-0.04 -1.57,0.37 -1.51,0 -1.34,0.16 -7.41,0.1 -0.57,-0.45 -0.73,-1.4 -0.65,-0.3 -0.88,-1.06 -4.04,-4.03 -0.04,-0.4 0.46,-1.24 -0.11,-1.23 -3.41,-4.45 -0.47,-0.46 -1.11,-0.66 -0.4,-0.06 -1.09,0.3 -0.96,0.77 -0.57,0.24 -2.6,-0.17 -0.7,-0.22 -1.58,-0.86 -2.27,-0.66 -0.67,-0.32 -1.73,-1.5 -4.19,-4.6 -4.81,-5.35 -3.08,-3.9 -0.48,-0.43 -0.03,0.85 -0.31,1.18 0.1,0.55 0.89,0.89 0.04,0.29 -0.17,0.52 -0.34,0.22 -0.42,-0.01 -0.55,-0.31 -0.63,0 -0.51,0.63 0,0.17 0.69,0.57 0.26,0.42 -0.42,2.18 -0.31,0.49 -0.49,0.3 -1.15,-0.37 -2.65,0.5 -1.07,0.06 -1.32,-0.64 -1.21,-0.24 -1.19,-0.57 -1.49,-0.41 -2.9,-0.6 -0.9,0.03 -1.42,0.57 -1.04,0.6 -2.33,1.94 -0.62,0.06 -0.410003,0.35 -0.18,0.69 0.32,0.76 1.860003,1.35 2.37,1.33 0.99,0.38 1.35,0.25 0.45,0.54 2.67,6.2 1.3,2.05 0.57,0.68 0.19,0.94 -0.04,1.21 0.44,0.4 0.53,-0.13 3.15,1.98 0.96,0.79 0.13,0.71 -0.51,1.04 -0.37,0.26 -0.43,0.02 -2.11,-0.5 -1.87,0.38 -0.19,-0.67 0.12,-2.02 -0.11,-1.05 -0.81,-2.86 -0.71,-1.34 -0.89,-0.99 -1.25,-0.84 -4.85,-1.25 -0.8,0.05 -2.180003,1.13 -1.3,0.48 -0.19,-0.1 -0.19,-0.72 -0.92,-0.65 -0.29,-0.37 -0.27,-1.2 -0.85,-0.75 -0.96,-0.18 -1.43,0.31 -0.99,0.68 -0.53,-0.01 -0.27,0.29 -0.4,1.83 -0.29,0.75 -0.32,-0.13 -0.74,-0.86 -0.44,-0.11 -0.67,0.22 -0.22,0.39 -0.28,1.55 0.34,0.78 0.89,0.82 0.44,0.72 0.33,1.08 -0.02,0.54 -0.37,1.05 0.03,1.41 -0.24,1.11 0.12,1.55 -0.2,1.61 -0.18,0.6 -0.34,0.39 -0.47,0.16 -0.85,-0.03 -1.66,-0.69 -0.44,0.1 -0.28,0.52 -0.34,1.2 0.7,1.2 0.44,1.1 -0.19,0.42 -0.87,0.12 -3.06,-0.52 -2.59,0.89 -1.77,0.93 -0.74,0.18 -0.6,-0.02 -1.62,-0.99 -1.87,-0.37 -2.29,-0.18 -5.17,0.28 -1.96,0.73 -2.52,1.24 -2.19,1.6 -1.26,1.09 -1.12,1.61 -0.41,0.87 -0.68,1.59 -1.07,3.33 -0.61,0.85 -1.13,1.1 -0.71,0.43 -1.37,0.51 -2.16,0.64 -0.73,0.44 -0.86,0.79 -0.92,1.92 -0.31,2.04 -0.45,1.83 0.05,2.75 0.3,2.68 -0.14,2.73 0.56,2.37 0.4,0.99 0.38,0.5 -0.02,0.24 0.36,0.16 0.53,1.03 0.24,1.15 0.09,0.8 -0.2,1.22 0,2.34 0.42,3.14 0.3,0.99 0.38,0.72 1.85,2.64 0.91,0.02 1.95,-0.6 0.43,0.4 0.04,0.52 -0.32,0.71 -0.4,0.4 -0.53,0.33 -1.98,0.69 -0.84,0.79 -0.46,0.88 -0.04,1.5 -0.32,0.67 -0.49,0.54 -0.55,0.29 -1.32,0 -1.8,-0.44 -3.96,-0.34 -4.15,-0.59 -6.75,-0.42 -3.77,-0.08 -5.88,-0.68 -3.49,-0.26 -1.88,0.01 -5.1800003,-0.47 -9.41999997,-0.39 -0.08,-232.559998 1.51999997,-0.39 1.43,-0.63 30.1400003,-9.85 0.02,-0.13 1.67,-0.29 0.34,-0.35 1.01,-0.34 13.14,-4.2 43.66,-13.4999998 6.65,-2.22 2.220003,-0.46 17.06,-5.04 z" />
                       <path class="map-region" data-name="Самарканд" title="Samarqand" id="UZ-SA" d="m 532.92007,390.83972 -0.11,0.3 -1.6,-0.31 -0.97,0.21 -3.33,1.15 -0.23,0.29 0,0.19 0,0 -1,0.23 -1.65,-0.32 -3.84,-1.19 -2.56,-1.09 -4.46,-1.27 -0.88,0.05 -0.43,0.48 0.07,1.78 -0.11,0.35 -0.42,0.48 -0.82,0.21 -3.88,0.24 -1.89,-0.15 -0.93,-0.53 -0.33,-0.48 -0.06,-0.58 0.46,-1.7 0.11,-1.26 -0.49,-1.32 -0.63,-0.67 -8.57,-1.53 -1.19,0.06 -0.81,0.28 -0.83,0.95 -1.1,1.78 -0.82,0.96 -3.64,1.56 -0.3,0.01 -0.69,-0.33 -1.64,-1.15 -1.65,-1.44 -1.17,-0.75 -0.63,-0.16 -7.55,1.87 -3.27,1.67 -2.21,1.38 -1.53,0.04 -3.08,-0.78 -0.72,-0.25 -0.22,-0.21 -0.09,-1.49 -2.77,-4.65 -3.3,-3.81 -4.31,-0.88 -0.04,0.33 -0.19,0.27 -1.43,1.07 -1.31,0.55 -1.49,0.18 -17.55,-0.53 -0.69,-0.16 0,0 -2.12,-3.8 -0.81,-1.81 -0.17,-0.81 0.04,-0.63 1.17,-2.34 0.51,-1.46 0.17,-0.97 -1.35,-5.22 -0.94,-1.45 -0.97,-0.81 -1.48,-1.53 -0.33,-0.77 0.08,-0.37 0.5,-0.35 8.65,-2.92 1,0.49 2.85,0.88 0.59,-0.01 0.52,-0.3 0.71,-1.29 1.83,-5.54 0.42,-5.8 -0.05,-0.97 0.16,-0.7 0.35,-0.57 0.52,-0.28 1.01,0.17 5.48,2.07 1,1.55 0.46,1.04 2.09,1.14 5.38,2.3 1.22,0.2 8.91,-1.93 1.63,-0.76 3.49,-3.29 0.43,-0.62 0.14,-1.12 -0.18,-0.45 -0.82,-0.07 -1.43,0.92 -0.8,-0.1 -0.2,-0.98 2.3,-6.07 0.86,-1.34 0.88,-6.12 0.17,-2.27 -0.37,-0.72 -0.54,-0.2 -0.25,-0.35 0.59,-4.91 2.15,-4.68 0.91,-1.08 1.11,-0.19 1.19,0.09 1.03,1.55 1.04,0.79 1.83,0.25 1.38,-0.11 2.35,-1.29 2.11,-1.92 0.58,0.27 0.97,1.12 1.86,2.66 1.26,3.47 0,0 7.79,0.92 4.61,0.1 0.96,2.18 0.01,1.1 -0.83,1.83 -0.14,0.77 0.1,3.93 0.84,4.1 1.86,1.66 1.44,2.81 -0.07,0.81 -0.45,1.34 -0.24,0.16 -1.24,0.29 -0.1,0.35 0.35,3.71 5.83,3.93 2.12,0.8 4.81,0.4 11.87,2.53 0.21,0.24 1.07,5.96 0.08,1.02 -1.3,0.15 -1.54,0.38 -2.16,1.03 -0.69,0.54 -0.76,0.91 -3.22,5.24 -0.1,0.37 0.02,4.16 0.21,0.95 0.65,0.96 1.03,1.05 4.53,3.82 0,0 2.23,4.67 0.83,2.3 0.94,1.95 0.21,0.81 z" />
                       <path class="map-region" data-name="Сырдарья" title="Sirdaryo" id="UZ-SI" d="m 596.13007,337.79972 -1.61,0.97 -1.29,0.33 -2.39,-0.67 -0.98,0.44 -5.44,1.74 0,0 1.01,-6.41 -0.31,-0.68 -7.13,1.64 -2.28,0.79 -4.02,0.82 -4.57,0.17 -6.55,-0.31 -0.32,-0.05 -0.66,-0.97 -0.34,-0.9 -0.15,-0.96 0.2,-1.52 4.95,-11.04 0.77,-2 0.15,-0.77 -0.16,-0.2 -0.33,0.1 -2.11,1.02 -0.16,-0.27 0.48,-4.89 2.1,-0.54 1.86,0.1 0.34,-0.61 0.17,-2.84 0,0 3.65,3.11 1.89,-0.5 1.91,1.57 -0.54,1.14 4.87,1.43 0.81,-1.12 2.4,0.18 4.31,-1.73 -0.84,-2.09 -2.41,-1.29 -1.13,-3.29 -3.28,-4.53 0.87,-7.45 -1,-2.53 0.86,-0.9 -0.88,-1.39 -3.62,-0.23 -0.01,-1.3 4.92,0.31 0.32,0.6 2.36,-1.47 -0.02,0.24 0.31,0.09 0.2,1.2 0.67,0.25 0.8,-0.37 0.94,0.21 0.37,0.38 -0.14,0.33 -1.44,0.55 -0.19,0.35 -0.03,0.56 0.54,1.06 0.4,-0.33 0,0 4.86,5.52 3.47,3.47 4.92,4.44 4.71,3.91 0.62,0.08 3.03,4.23 -0.5,4.7 -0.86,5.32 -1.01,4.96 0.02,1.06 0.14,0.62 0.5,1.05 -0.25,4.73 0,0 -1.11,-0.35 -2.57,-0.02 -3.36,0.35 z" />
                       <path class="map-region" data-name="Сурхандарья" title="Surxondaryo" id="UZ-SU" d="m 573.27007,459.46972 -1.03,3.53 -0.14,1.23 -2.3,2.42 -1.64,3.1 0.07,1.57 -0.47,1.11 0.09,0.79 -0.35,0.89 -2.5,1.17 -4.05,0.7 -0.81,1.44 -3.16,6.75 -1.15,1.66 -1.37,0.98 -2.29,2.97 -1.05,2.43 -1.27,2.43 -1.59,1.53 -1.19,3.88 -0.05,2.56 0.26,4.01 -0.56,6.66 -0.71,2.43 -0.68,0.44 -0.59,-1.11 -1.5,-1.2 -0.74,-0.22 -1.38,0.15 -0.42,-0.06 -0.86,-0.76 -1,-0.59 -0.61,0.09 -1.37,0.55 -0.67,0.54 -0.39,0.5 -0.7,0.09 -0.42,-0.65 -0.42,-1.37 -0.74,-0.72 -0.82,-0.4 -0.67,0.14 -0.57,0.38 -1.87,1.72 -1.35,0.46 -1.15,0.68 -1.26,0.11 -1.84,0.47 -0.96,1.03 -1.5,0.63 -0.54,-0.2 -0.86,-0.77 -0.17,-1.53 -0.28,-0.49 -0.77,-0.37 -0.37,-0.87 -0.27,-0.27 -0.97,-0.38 -0.45,-0.34 -0.7,0.15 -0.46,-0.12 -1.52,-0.85 -0.46,-0.71 0.36,-1.53 -0.32,-0.84 -1.73,-0.86 -1.36,-1.41 -0.43,-0.26 -1.93,-0.72 -1.88,0.13 -3.58,1.59 -1.58,-0.19 -0.82,0.07 -2.23,0.76 -1.95,-0.49 -0.95,0.01 -1.1,0.37 -1.6,-0.37 -1.45,0.23 -1.17,-0.12 -1.79,0.07 -1.31,0.54 -0.4,-2.01 0.17,-0.66 0.43,-0.62 0.86,-0.63 1.13,-0.58 3.04,-0.91 0.3,-0.73 0.01,-0.75 -0.43,-1.1 -4.56,-5.54 -0.26,-1.49 0.56,-5.62 -0.29,-1.53 0,-0.6 0.45,-3.11 0.74,-1.79 0.73,-1.12 0.77,-0.76 0.54,-1.27 0.56,-0.73 2.28,-1.33 0.43,-0.4 0.24,-0.83 -0.03,-0.89 -0.54,-1.05 0,0 -0.27,-0.9 1.04,-4.27 0.43,-1.25 11.58,-12.1 3.54,-1.85 1.83,-1.28 2.42,-2.43 0.45,-0.87 0.37,-1.4 0.16,-1.52 0.72,-3.35 8.89,-8.88 1.19,-2.22 0.81,-1.3 0.59,-0.64 0.45,-0.34 1.14,-0.33 1.43,0.07 1,0.32 1.41,1.43 0.54,0.18 1.34,-4.3 -0.13,-4.2 -0.15,-0.52 -0.38,-0.46 -1.02,-2.1 -0.54,-3.14 0.06,-0.4 0.45,-0.84 0.67,-0.57 0.51,-0.25 0.86,-0.26 3.99,-0.23 0.98,-0.58 0.8,-0.82 0,0 0.39,0.53 0.68,0.29 0.91,-0.32 0.62,0.24 1.04,-0.72 2.05,-0.19 1.35,0.82 1.47,0.14 1.05,-1.35 2.05,-0.07 1.04,-0.55 0.45,0.01 1.11,1.16 1.02,0.25 1.84,-0.99 1.25,0.14 1.24,0.82 0.87,1.84 0.31,1.03 2.69,2.1 0.09,0.8 -0.14,1.24 -0.35,0.22 0.3,2.16 -1.26,0.65 -0.59,0.9 -1.03,0.32 -2.5,0.4 -0.35,0.56 2.53,3.68 -0.36,0.67 -1.59,0.19 -1.27,1.22 0.42,1.48 0.87,1.94 -0.01,0.45 -0.47,0.56 -0.33,5.31 2.42,3.21 1,0.81 -0.37,1.12 -0.93,1.45 -0.25,1.01 0.45,0.01 1.48,-0.65 0.46,0.01 1.67,0.94 1.41,2.4 0.21,0.79 0.08,1.36 0.22,0.23 1.34,0.48 1.45,0.71 1,0.69 1.97,2.53 0.02,0.38 0.72,1.32 1.09,1.49 -0.01,0.79 z" />
@@ -367,18 +592,22 @@
                 <!-- Панель выбора -->
                 <div class="selection-panel" id="selection-panel">
                     <div>
-                        <h3>Выбранный регион: <span id="selected-city-name" style="color: #4f46e5;">Не выбран</span></h3>
-                        <p style="margin: 5px 0 0 0; font-size: 14px; color: #475569;" id="selection-status">Нажмите на карту для выбора маршрута</p>
+                        <h3>Выбранный регион: <span id="selected-city-name" style="color:#4f46e5;">Не выбран</span></h3>
+                        <p id="selection-status">Нажмите на карту для выбора маршрута</p>
                     </div>
-                    <button class="btn-order" id="btn-open-modal" onclick="openOrderModal()" disabled style="opacity: 0.5;">
+                    <button class="btn-order" id="btn-open-modal" onclick="openOrderModal()" disabled>
                         Оформить поездку ✈️
                     </button>
                 </div>
             </div>
-        </article>
-    </section>
+            <!-- конец map-section -->
 
-    <!-- Модальное окно оформления туров -->
+        </article>
+
+    </div>
+    <!-- конец .main-container -->
+
+    <!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
     <div class="modal-overlay" id="order-modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeOrderModal()">&times;</button>
@@ -386,7 +615,7 @@
             <form onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
                     <label>Направление (город):</label>
-                    <input type="text" id="modal-city-input" readonly style="background: #f1f5f9; font-weight: bold; color: #4f46e5;">
+                    <input type="text" id="modal-city-input" readonly style="background:#f1f5f9;font-weight:700;color:#4f46e5;">
                 </div>
                 <div class="form-group">
                     <label for="user-name">Ваше имя:</label>
@@ -400,35 +629,73 @@
                     <label for="travel-date">Планируемая дата поездки:</label>
                     <input type="date" id="travel-date" required>
                 </div>
-                <button type="submit" class="btn-order" style="width: 100%; margin-top: 10px;">
+                <button type="submit" class="btn-order" style="width:100%;margin-top:10px;">
                     Отправить заявку
                 </button>
             </form>
         </div>
     </div>
 
- <footer style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; min-height: 200px; padding: 20px;">
-    <!-- SVG абсолютно прижат к левому краю -->
-    <svg style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%);" width="150" height="150" viewBox="0 0 200 200">
-<defs>
-    <linearGradient id="grad1">
-       <stop offset="0%" stop-color="yellow"/>
-       <stop offset="100%" stop-color="red"/>
-       </linearGradient> 
-</defs>
-<ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)"/>
-<text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">UzTur</text>
-    </svg>
-    
-    <!-- Контент строго по центру -->
-    <div>
-        <p style="margin: 0 0 5px 0;">Вы можете связаться с нами по адресу, указанному ниже:</p>
-        <p style="margin: 0 0 5px 0;"><a href="mailto:riardik5@gmail.com">riardik5@gmail.com</a></p>
-        <p style="margin: 0;">&copy; Copyright</p>
-    </div>
-</footer>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-inner">
+            <!-- SVG логотип: тоже вращается -->
+            <div class="footer-logo-wrap">
+                <svg class="spin-coin-footer" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#fbbf24"/>
+                            <stop offset="100%" stop-color="#dc2626"/>
+                        </linearGradient>
+                    </defs>
+                    <ellipse cx="100" cy="70" rx="88" ry="58" fill="url(#grad3)"/>
+                    <ellipse cx="100" cy="68" rx="84" ry="54" fill="none" stroke="#fde68a" stroke-width="2" stroke-dasharray="6 4" opacity="0.5"/>
+                    <text fill="#ffffff" font-size="36" font-family="Verdana, sans-serif" font-weight="bold"
+                          x="100" y="78" text-anchor="middle" dominant-baseline="middle">UzTur</text>
+                </svg>
+            </div>
+
+            <div class="footer-info">
+                <p>Вы можете связаться с нами по адресу, указанному ниже:</p>
+                <p><a href="mailto:riardik5@gmail.com">riardik5@gmail.com</a></p>
+                <p style="margin-top:6px;color:#94a3b8;">&copy; 2026 UzTur. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
+        /* ===== СЛАЙДЕР ===== */
+        const track = document.getElementById('sliderTrack');
+        const slides = track.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('sliderDots');
+        let currentSlide = 0;
+        let autoSlide;
+
+        // Создаём точки
+        slides.forEach((_, i) => {
+            const dot = document.createElement('button');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Слайд ' + (i + 1));
+            dot.onclick = () => goToSlide(i);
+            dotsContainer.appendChild(dot);
+        });
+
+        function goToSlide(index) {
+            currentSlide = (index + slides.length) % slides.length;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dotsContainer.querySelectorAll('.dot').forEach((d, i) => {
+                d.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        document.getElementById('prevBtn').onclick = () => { goToSlide(currentSlide - 1); resetAuto(); };
+        document.getElementById('nextBtn').onclick = () => { goToSlide(currentSlide + 1); resetAuto(); };
+
+        function startAuto() { autoSlide = setInterval(() => goToSlide(currentSlide + 1), 3500); }
+        function resetAuto() { clearInterval(autoSlide); startAuto(); }
+        startAuto();
+
+        /* ===== КАРТА ===== */
         let currentSelectedRegion = null;
         let currentSelectedName = '';
 
@@ -438,67 +705,40 @@
         const btnOpenModal = document.getElementById('btn-open-modal');
         const modalCityInput = document.getElementById('modal-city-input');
 
-        // Инициализация событий на элементах карты
         document.querySelectorAll('.map-region').forEach(region => {
             if (region.classList.contains('water')) return;
-
             const regionName = region.getAttribute('data-name') || region.getAttribute('title');
 
-            // Наведение мыши (Tooltip)
             region.addEventListener('mousemove', (e) => {
+                const rect = region.closest('.map-container').getBoundingClientRect();
                 mapTooltip.textContent = regionName;
-                mapTooltip.style.left = (e.pageX - region.getBoundingClientRect().left - 40) + 'px';
-                mapTooltip.style.top = (e.pageY - window.scrollY - region.getBoundingClientRect().top - 40) + 'px';
+                mapTooltip.style.left = (e.clientX - rect.left + 10) + 'px';
+                mapTooltip.style.top  = (e.clientY - rect.top  - 36) + 'px';
                 mapTooltip.style.opacity = '1';
             });
-
-            region.addEventListener('mouseleave', () => {
-                mapTooltip.style.opacity = '0';
-            });
-
-            // Клик по региону карты
-            region.addEventListener('click', () => {
-                selectRegion(region, regionName);
-            });
+            region.addEventListener('mouseleave', () => { mapTooltip.style.opacity = '0'; });
+            region.addEventListener('click', () => selectRegion(region, regionName));
         });
 
         function selectRegion(regionEl, name) {
-            // Сброс предыдущего выбора
-            if (currentSelectedRegion) {
-                currentSelectedRegion.classList.remove('selected');
-            }
+            if (currentSelectedRegion) currentSelectedRegion.classList.remove('selected');
             document.querySelectorAll('nav li').forEach(li => li.classList.remove('active-city'));
-
-            // Установка нового региона
             currentSelectedRegion = regionEl;
             currentSelectedName = name;
             regionEl.classList.add('selected');
-
-            // Обновление интерфейса
             selectedCityNameEl.textContent = name;
-            selectionStatusEl.textContent = 'Маршрут доступен! Нажмите кнопку для оформления туров.';
+            selectionStatusEl.textContent = 'Маршрут доступен! Нажмите кнопку для оформления тура.';
             btnOpenModal.disabled = false;
-            btnOpenModal.style.opacity = '1';
-
-            // Подсветка в меню слева, если город совпадает
-            if (name.includes('Ташкент')) {
-                document.getElementById('nav-tashkent')?.classList.add('active-city');
-            } else if (name.includes('Самарканд')) {
-                document.getElementById('nav-samarkand')?.classList.add('active-city');
-            } else if (name.includes('Бухара')) {
-                document.getElementById('nav-bukhara')?.classList.add('active-city');
-            }
+            if (name.includes('Ташкент')) document.getElementById('nav-tashkent')?.classList.add('active-city');
+            else if (name.includes('Самарканд')) document.getElementById('nav-samarkand')?.classList.add('active-city');
+            else if (name.includes('Бухара')) document.getElementById('nav-bukhara')?.classList.add('active-city');
         }
 
         function selectCityById(id, name) {
             const region = document.getElementById(id);
-            if (region) {
-                selectRegion(region, name);
-                region.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
+            if (region) { selectRegion(region, name); region.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
         }
 
-        // Модальное окно
         function openOrderModal() {
             if (!currentSelectedName) return;
             modalCityInput.value = currentSelectedName;
@@ -512,9 +752,10 @@
         function handleFormSubmit(e) {
             e.preventDefault();
             const name = document.getElementById('user-name').value;
-            alert(`Спасибо, ${name}! Ваша заявка на поездку в город "${currentSelectedName}" успешно оформлена. Мы свяжемся с вами в ближайшее время.`);
+            alert(`Спасибо, ${name}! Ваша заявка на поездку в "${currentSelectedName}" успешно оформлена. Мы свяжемся с вами в ближайшее время.`);
             closeOrderModal();
         }
     </script>
+
 </body>
 </html>
